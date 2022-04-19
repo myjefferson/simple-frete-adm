@@ -1,0 +1,62 @@
+/*welcome page*/
+.welcome-page{
+  margin: 8px 0 20px 0;
+}
+
+.welcome-page 
+h4{
+  color: #666;
+  margin: 0;
+  font-weight: 600;
+}
+
+.welcome-page 
+h2{
+  font-weight: bold;
+  color: var(--bs-dark);
+}
+
+/*fast buttons*/
+.fast-buttons 
+.card{
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.fast-buttons 
+a{
+  text-decoration: none;
+}
+
+.fast-buttons 
+.card 
+.card-body{
+  background: #FFFF;
+  border-radius: var(--global-border-buttons);
+  box-shadow: 2px 2px 5px rgba(0,0,0,.075);
+}
+
+/*special cards*/
+.special-cards{
+  margin-top: 30px;
+}
+
+.special-cards h5{
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.special-cards 
+.card{
+  border-radius: var(--global-border-buttons);
+}
+
+/*default size and scroll tables*/
+.special-cards .solicitacoes-frete,
+.special-cards .viagens-concluir{
+  overflow-x: hidden;
+  object-fit: cover;
+  max-height: 300px;
+  min-height: 200px;
+}

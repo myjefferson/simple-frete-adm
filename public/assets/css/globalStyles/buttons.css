@@ -1,0 +1,12 @@
+button.onDefault{
+    border-radius: 7px;
+    padding: 8px;
+    display: block;
+    background: linear-gradient(to right, #0A6FED, #05419E);
+    box-shadow: none !important;
+    border: none;
+}
+
+button.onDefault:hover{
+    background:  linear-gradient(to right, #05419E, #05419E);
+}

@@ -1,0 +1,14 @@
+.conteudo{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    width: 300px;
+}
+
+button{
+    width: 100%;
+}
