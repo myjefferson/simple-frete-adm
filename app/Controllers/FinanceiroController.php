@@ -7,7 +7,7 @@ class FinanceiroController extends BaseController{
         $data = $this->defaultData();
         $data['titulo'] = "Financeiro | Simple Frete";
         $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/financeiro/financeiro.css").">";
-        $data['loadPage'] = view("Dashboard/Financeiro");
+        $data['renderPage'] = view("Dashboard/Financeiro");
 
         echo view("template/Dashboard", $data);
     }

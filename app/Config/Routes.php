@@ -37,9 +37,10 @@ $routes->get('/dashboard', 'HomeController::index');
 
 //Motoristas
 $routes->get('/dashboard/motoristas', 'MotoristasController::index');
+$routes->get('/dashboard/motoristas/cadastro', 'MotoristaCadastroController::index');
 
-//Caminhoes
-$routes->get('/dashboard/caminhoes', 'CaminhoesController::index');
+//Veiculos
+$routes->get('/dashboard/veiculos', 'VeiculosController::index');
 
 //Financeiro
 $routes->get('/dashboard/financeiro', 'FinanceiroController::index');

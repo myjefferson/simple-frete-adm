@@ -7,9 +7,8 @@ class ConfigController extends BaseController{
         $data = $this->defaultData();
         $data['titulo'] = "Configurações | Simple Frete";
         $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/config/config.css").">";
-        $data['loadPage'] = view("Dashboard/Config");
+        $data['renderPage'] = view("Dashboard/Config");
 
-        //load template Dashboard with loadPage corresponding
         echo view("template/Dashboard", $data);
     }
 }

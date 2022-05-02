@@ -53,8 +53,13 @@ class BaseController extends Controller
 
 	//Default Data
 	public function defaultData(){
-		
-		$data['jsBootstrap'] = "<script src=".base_url("assets/js/bootstrap/5.1.3/bootstrap.min.js")."></script>";
+
+		$data['jsjQuery'] = "<script src=".base_url("assets/js/jquery/3.6.0/jquery.slim.min.js")."></script>";
+		$data['jsBootstrap'] = "
+			<script src=".base_url("assets/js/bootstrap/5.1.3/popper.min.js")."></script>
+			<script src=".base_url("assets/js/bootstrap/5.1.3/bootstrap.min.js")."></script>
+		";
+		$data['jsList'] = "<script src=".base_url("assets/js/listjs/2.3.1/list.min.js")."></script>";
 		$data['cssBootstrap'] = "<link rel='stylesheet' href=".base_url("assets/css/bootstrap/5.1.3/bootstrap.min.css").">";
 		$data['iconify'] = "<script src=".base_url("https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js")."></script>";
 		$data['dashboardStyle'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/dashboard.css").">";

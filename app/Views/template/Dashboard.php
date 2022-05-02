@@ -2,10 +2,13 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-		<title><?= $titulo ?></title>
+		<title>
+            <?= $titulo ?>
+        </title>
 		<meta name="description" content="Simple frete System">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+
         <!--Global Styles-->
         <?= $globalStyles ?>
         <!--CSS da página-->
@@ -14,9 +17,15 @@
         <?= $iconify ?>
         <!--Dashboard Style-->
         <?= $dashboardStyle ?>
-        <!--Bootstrap-->
+        <!--CSS Bootstrap-->
         <?= $cssBootstrap ?>
+        <!--jQuery-->
+        <?= $jsjQuery ?>
+        <!--JS Bootstrap-->
         <?= $jsBootstrap ?>
+        <!--ListJS-->
+        <?= $jsList ?>
+
 	</head>
 	<body>
         <div class="container-fluid">
@@ -42,9 +51,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/dashboard/caminhoes">
+                                <a href="/dashboard/veiculos">
                                     <span class="iconify" data-icon="fluent:vehicle-truck-cube-24-regular"></span>
-                                    Caminhões
+                                    Veículos
                                 </a>
                             </li>
                             <li>
@@ -69,7 +78,7 @@
                     </nav>
                 </div>
                 <div class="col-md-10 col-lg-10 content-page">
-                    <?= $loadPage ?>
+                    <?= $renderPage ?>
                 </div>
             </div>
         </div>

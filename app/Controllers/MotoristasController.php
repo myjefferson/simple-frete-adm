@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Controllers;
-use App\Controllers\BaseController;
+    namespace App\Controllers;
 
-class MotoristasController extends BaseController{
-    
-    public function index(){
-        $data = $this->defaultData();
-        $data['titulo'] = "Motoristas | Simple Frete";
-        $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/motoristas/motoristas.css").">";
-        $data['loadPage'] = view("Dashboard/Motoristas");
+    class MotoristasController extends BaseController{
+        
+        public function index(){
+            //templates
+            $header['viewHeaderMotorista'] = view("template/HeaderMotoristas");
 
-        //load template Dashboard with loadPage corresponding
-        echo view("template/Dashboard", $data);
+            $data = $this->defaultData();
+            $data['titulo'] = "Motoristas | Simple Frete";
+            $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/motoristas/motoristas.css").">";
+            $data['renderPage'] = view("Dashboard/Motoristas/Motoristas", $header);
+            
+            //default template for show page
+            echo view("template/Dashboard", $data);
+        }
     }
-}
 
 ?>

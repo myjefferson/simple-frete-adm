@@ -1,4 +1,4 @@
-<div class="page-home">
+<div id="page-home">
     <div class="welcome-page">
         <h4>Bem vindo</h4>
         <h2>Miranda Silva</h2>
