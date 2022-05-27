@@ -8,46 +8,54 @@ use SimpleFrete;
 create table `Administradores`(
 	AdministradorID int (30) primary key auto_increment,
     tipoUsuario varchar (20), /*ADM, MOT, FUN*/
+    Foto text,
     Nome varchar (30) not null,
     Sobrenome varchar(30),
-    Email varchar(30) not null,
-    Senha varchar(10) not null,
     CPF int (15) not null,
     Disponibilidade varchar (1),
     dataCriacao datetime not null,
     dataModificacao datetime not null
-); 
+);
 
 /*Criação da tabela funcionarios*/
 create table `Funcionarios`(
 	FuncionarioID int (30) primary key auto_increment,
     tipoUsuario varchar (20) not null, /*ADM, MOT, FUN*/
+    Foto text,
     Nome varchar (30) not null,
     Sobrenome varchar(30),
-    Email varchar(30) not null,
-    Senha varchar(10) not null,
     CPF int (15) not null,
 	dataNascimento date,
     Disponibilidade varchar (1),
     dataCriacao datetime not null,
     dataModificacao datetime not null
-); 
+);
 
 /*Criação da tabela motoristas*/
 create table `Motoristas`(
 	MotoristaID int (30) primary key auto_increment,
     tipoUsuario varchar (20), /*ADM, MOT, FUN*/
+	Foto text,
     Nome varchar (30) not null,
     Sobrenome varchar(30),
-    Email varchar(30) not null,
-    Senha varchar (13) not null,
-    CPF int (15) not null,
     dataNascimento date,
-    CNH int (12) not null,
-    Disponibilidade varchar (1),
+    CPF int (15) not null,
+    CNHCategoria varchar (20) not null,
+    CNHLocal varchar (20) not null,
+    CNHNumeroRegistro varchar (20) not null,
+    Telefone varchar (20),
+    CEP varchar (20),
+    Endereco varchar (30),
+    Cidade varchar (20),
+    Estado varchar (20),
+    NumeroCasa varchar (15),
+    Complemento varchar (30),
+    Disponibilidade tinyint,
     dataCriacao datetime not null,
     dataModificacao datetime not null
 ); 
+
+select * from Motoristas;
 
 create table `Veiculos`(
 	VeiculoID int (30) primary key auto_increment,
@@ -64,20 +72,22 @@ create table `Veiculos`(
     dataModificacao datetime not null
 );
 
-create table `RecuperarConta`(
+create table `Logins`(
 	RecuperacaoID int (30) primary key auto_increment,
     UsuarioID int (20),
     CPF int (15),
-    Email varchar (30),
+	Email varchar(30) not null,
+    Senha varchar (13) not null,
     chaveSeguranca text,
     dataCriacao datetime not null,
     dataModificacao datetime not null
 ); 
 
-
-
-
-
-
-
-
+/*drop de tabelas*/
+/*
+drop table RecuperarConta;
+drop table Funcionarios;
+drop table Veiculos;
+drop table Administradores;
+drop table Motoristas;
+*/

@@ -1,5 +1,8 @@
 <?=  
     $viewHeaderMotorista;
+
+    //Load functions VueJS
+    $jsPage;
 ?>
 
 <div id="page-motoristas">
@@ -39,7 +42,26 @@
         </div>
 
     <div class="table-responsive-sm list">
+
+        <div v-if="errored"> Nada encontrado </div>
+
+        <div v-else>
+
+            <div v-if="loading">Carregando...</div>
+            <div
+                v-else
+                v-for="motorista in motoristas.motorista"
+                class="motorista"
+            >
+
+            {{ motorista.Nome }}
+
+        </div>
+
+        </div>
+
         <table class="table">
+
             <tr class="table-title">
                 <td rowspan="2" class="avatar">
                     <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
@@ -119,6 +141,7 @@
     }
 
     var hackerList = new List('page-motoristas', options)
+
 
 </script>
 

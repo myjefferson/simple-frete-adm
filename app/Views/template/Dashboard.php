@@ -20,11 +20,17 @@
         <!--CSS Bootstrap-->
         <?= $cssBootstrap ?>
         <!--jQuery-->
-        <?= $jsjQuery ?>
+         <!-- $jsjQuery  -->
+        <!--VueJS-->
+        <?= $jsVue ?>
+        <!--Axios-->
+        <?= $jsAxios ?>
         <!--JS Bootstrap-->
         <?= $jsBootstrap ?>
         <!--ListJS-->
         <?= $jsList ?>
+        <!--JS da página-->
+        <?= $jsPage ?>
 
 	</head>
 	<body>

@@ -32,12 +32,22 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// get('directory/url', 'Folder\ControllerName::index')
+
 $routes->get('/', 'LoginAdmController::index');
 $routes->get('/dashboard', 'HomeController::index');
 
+//---------------------------------------------------------------------
 //Motoristas
-$routes->get('/dashboard/motoristas', 'MotoristasController::index');
-$routes->get('/dashboard/motoristas/cadastro', 'MotoristaCadastroController::index');
+$routes->get('/dashboard/motoristas', 'Motoristas\MotoristasController::index');
+$routes->get('/dashboard/motoristas/selectAllMotoristas', 'Motoristas\MotoristasController::selectAllMotoristas');
+$routes->get('/dashboard/motoristas/cadastro', 'Motoristas\CadastroMotoristaController::index');
+$routes->get('/dashboard/motoristas/detalhes-motorista/(:num)', 'Motoristas\DetalhesMotoristaController::index/$1');
+
+//Motoristas - Request / Response
+$routes->post('/request/motoristas/cadastrar', 'Motoristas\CadastroMotoristaController::cadastrarMotorista');
+
+//---------------------------------------------------------------------
 
 //Veiculos
 $routes->get('/dashboard/veiculos', 'VeiculosController::index');
