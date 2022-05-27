@@ -11,10 +11,9 @@ new Vue({
             method: 'get',
             url: '/dashboard/motoristas/selectAllMotoristas'
         })
-        .then(function(res){
+        .then(res => {
+            //console.log(this.motoristas);
             this.motoristas = res.data.status
-            console.log(this.motoristas.motorista);
-            
         })
         .catch(error => {
             //console.log("Opa! Não deu certo." + error)
