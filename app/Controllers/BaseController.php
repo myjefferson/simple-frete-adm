@@ -54,7 +54,7 @@ class BaseController extends Controller
 	//Default Data
 	public function defaultData(){
 
-		//$data['jsjQuery'] = "<script src=".base_url("assets/js/jquery/3.6.0/jquery.slim.min.js")."></script>";
+		$data['jsjQuery'] = "<script src=".base_url("assets/js/jquery/3.6.0/jquery.slim.min.js")."></script>";
 		$data['jsVue'] = "<script src=".base_url("assets/js/vue/vue@2.6.14.js")."></script>";
 		$data['jsAxios'] = "<script src=".base_url("assets/js/axios/axios.js")."></script>";
 		$data['jsBootstrap'] = "

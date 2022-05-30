@@ -1,17 +1,13 @@
 
-<div id="page-cadastroMotoristas">
-    <form>
+<div id="page-cadastro-motorista">
+    <form require>
         <div class="mb-3">
             <label for="inputFoto" class="form-label">Foto</label>
             <input type="file" class="form-control" id="inputFoto" v-on:change="inputFoto">
         </div>
         <div class="mb-3">
-            <label for="inputNome" class="form-label">Primeiro Nome</label>
-            <input type="text" class="form-control" id="inputNome" v-model="inputNome">
-        </div>
-        <div class="mb-3">
-            <label for="inputSobrenome" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="inputSobrenome" v-model="inputSobrenome">
+            <label for="inputNome" class="form-label">Nome completo</label>
+            <input type="text" class="form-control" id="inputNome" v-model="inputNome" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputDataNascimento">Data de nascimento</label>
@@ -19,30 +15,30 @@
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputCPF">CPF</label>
-            <input type="text" class="form-control" id="inputCPF" v-model="inputCPF">
+            <input type="text" class="form-control" id="inputCPF" v-model="inputCPF" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputCNHCategoria">CNH (Categoria)</label>
-            <input type="text" class="form-control" id="inputCNHCategoria" v-model="inputCNHCategoria">
+            <input type="text" class="form-control" id="inputCNHCategoria" v-model="inputCNHCategoria" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputCNHLocal">CNH (Local)</label>
-            <input type="text" class="form-control" id="inputCNHLocal" v-model="inputCNHLocal">
+            <input type="text" class="form-control" id="inputCNHLocal" v-model="inputCNHLocal" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputCNHRegistro">CNH (Nº Registro)</label>
-            <input type="text" class="form-control" id="inputCNHRegistro" v-model="inputCNHRegistro">
+            <input type="text" class="form-control" id="inputCNHRegistro" v-model="inputCNHRegistro" require>
         </div>
 
         <h3><b>Informações de contato</b></h3>
 
         <div class="mb-3 form-check">
             <label class="form-label" for="inputTelefone">Telefone</label>
-            <input type="text" class="form-control" id="inputTelefone" v-model="inputTelefone">
+            <input type="text" class="form-control" id="inputTelefone" v-model="inputTelefone" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP" v-model="inputCEP">
+            <input type="text" class="form-control" id="inputCEP" v-model="inputCEP" require>
         </div>
         <div class="mb-3 form-check">
             <label class="form-label" for="inputEndereco">Endereço</label>

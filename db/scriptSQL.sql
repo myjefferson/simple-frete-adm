@@ -23,7 +23,6 @@ create table `Funcionarios`(
     tipoUsuario varchar (20) not null, /*ADM, MOT, FUN*/
     Foto text,
     Nome varchar (30) not null,
-    Sobrenome varchar(30),
     CPF int (15) not null,
 	dataNascimento date,
     Disponibilidade varchar (1),
@@ -37,7 +36,6 @@ create table `Motoristas`(
     tipoUsuario varchar (20), /*ADM, MOT, FUN*/
 	Foto text,
     Nome varchar (30) not null,
-    Sobrenome varchar(30),
     dataNascimento date,
     CPF int (15) not null,
     CNHCategoria varchar (20) not null,
@@ -60,6 +58,7 @@ select * from Motoristas;
 create table `Veiculos`(
 	VeiculoID int (30) primary key auto_increment,
     MotoristaID int (30),
+    Foto text,
     Marca varchar (20),
     Modelo varchar (20),
     Cor varchar (15),

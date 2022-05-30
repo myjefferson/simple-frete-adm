@@ -5,7 +5,7 @@
 		<title>
             <?= $titulo ?>
         </title>
-		<meta name="description" content="Simple frete System">
+		<meta name="description" content="Simple Frete System">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
@@ -20,7 +20,7 @@
         <!--CSS Bootstrap-->
         <?= $cssBootstrap ?>
         <!--jQuery-->
-         <!-- $jsjQuery  -->
+        <?= $jsjQuery ?>
         <!--VueJS-->
         <?= $jsVue ?>
         <!--Axios-->
@@ -48,6 +48,12 @@
                                 <a href="/dashboard">
                                     <span class="iconify" data-icon="bx:home"></span> 
                                     Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/dashboard/motoristas">
+                                    <span class="iconify" data-icon="akar-icons:shipping-box-01"></span>
+                                    Fretes
                                 </a>
                             </li>
                             <li>

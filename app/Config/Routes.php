@@ -38,22 +38,38 @@ $routes->get('/', 'LoginAdmController::index');
 $routes->get('/dashboard', 'HomeController::index');
 
 //---------------------------------------------------------------------
-//Motoristas
-$routes->get('/dashboard/motoristas', 'Motoristas\MotoristasController::index');
-$routes->get('/dashboard/motoristas/selectAllMotoristas', 'Motoristas\MotoristasController::selectAllMotoristas');
-$routes->get('/dashboard/motoristas/cadastro', 'Motoristas\CadastroMotoristaController::index');
-$routes->get('/dashboard/motoristas/detalhes-motorista/(:num)', 'Motoristas\DetalhesMotoristaController::index/$1');
 
-//Motoristas - Request / Response
-$routes->post('/request/motoristas/cadastrar', 'Motoristas\CadastroMotoristaController::cadastrarMotorista');
+//Motoristas - Pages
+$routes->get('/dashboard/motoristas', 							'Motoristas\MotoristasController::indexPage');
+$routes->get('/dashboard/motoristas/cadastro', 					'Motoristas\MotoristasController::cadastroPage');
+$routes->get('/dashboard/motoristas/detalhes-motorista/(:num)',	'Motoristas\MotoristasController::detalhesPage/$1');
+
+//Motoristas - ActionsDB
+$routes->get('/action/motoristas/all-motoristas', 						'Motoristas\ActionsMotoristasController::selectAllAction');
+$routes->get('/action/motoristas/detalhes-motorista/(:num)',	'Motoristas\ActionsMotoristasController::selectOneAction/$1');
+$routes->post('/action/motoristas/cadastrar', 					'Motoristas\ActionsMotoristasController::insertAction');
+$routes->post('/action/motoristas/alterar/(:num)', 				'Motoristas\ActionsMotoristasController::updateAction/$1');
+$routes->post('/action/motoristas/excluir/(:num)', 				'Motoristas\ActionsMotoristasController::deleteAction/$1');
 
 //---------------------------------------------------------------------
 
-//Veiculos
-$routes->get('/dashboard/veiculos', 'VeiculosController::index');
+//Veiculos - Pages
+$routes->get('/dashboard/veiculos', 							'Veiculos\VeiculosController::indexPage');
+$routes->get('/dashboard/veiculos/cadastro', 					'Veiculos\VeiculosController::cadastroPage');
+$routes->get('/dashboard/veiculos/detalhes-veiculo/(:num)',	'Veiculos\VeiculosController::detalhesPage/$1');
+
+//Veiculos - ActionsDB
+$routes->get('/action/veiculos/all-veiculos', 					'Veiculos\ActionsVeiculosController::selectAllAction');
+$routes->get('/action/veiculos/detalhes-veiculo/(:num)',		'Veiculos\ActionsVeiculosController::selectOneAction/$1');
+$routes->post('/action/veiculos/cadastrar', 					'Veiculos\ActionsVeiculosController::insertVeiculo');
+
+
+//--------------------------------------------------------------------
 
 //Financeiro
 $routes->get('/dashboard/financeiro', 'FinanceiroController::index');
+
+//--------------------------------------------------------------------
 
 //Configurações
 $routes->get('/dashboard/config', 'ConfigController::index');

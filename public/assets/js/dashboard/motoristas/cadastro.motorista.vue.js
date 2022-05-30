@@ -1,9 +1,8 @@
 new Vue({
-    el: '#page-cadastroMotoristas',
+    el: '#page-cadastro-motorista',
     data: {
         inputFoto: '',
         inputNome: '',
-        inputSobrenome: '',
         inputDataNascimento: '',
         inputCPF: '',
         inputCNHLocal: '',
@@ -21,16 +20,13 @@ new Vue({
     },
     methods:{
         insertMotorista: function(){
-            if(inputNome != '' && inputSobrenome != ''){
+            if(inputNome != ''){
 
                 let formData = new FormData();
-                
-                console.log("name", this.inputNome)
                 
                 formData.append('action',           'insert')
                 formData.append('foto',             this.inputFoto)
                 formData.append('nome',             this.inputNome)
-                formData.append('sobrenome',        this.inputSobrenome)
                 formData.append('datanascimento',   this.inputDataNascimento)
                 formData.append('cpf',              this.inputCPF)
                 formData.append('cnhlocal',         this.inputCNHLocal)
@@ -47,12 +43,13 @@ new Vue({
 
                 axios({
                     method: 'post',
-                    url: '/request/motoristas/cadastrar',
+                    url: '/action/motoristas/cadastrar',
                     data: formData,
                     config: { headers: {'Content-Type': 'multipart/form-data'} }
 
                 }).then(function(res){
                     alert(res.data.status);
+                    setTimeout(window.location.href = "/dashboard/motoristas", 0)
 
                 }).catch(function(res){
                     console.log("Opa! Não deu certo.")

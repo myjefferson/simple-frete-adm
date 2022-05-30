@@ -5,15 +5,15 @@
     $jsPage;
 ?>
 
-<div id="page-index-motoristas">
+<div id="page-veiculos">
     <header class="">
-        <h2><b>Motoristas</b></h2>
+        <h2><b>Veiculos</b></h2>
         
         <input type="text" class="search" placeholder="Busque por nome">
         
         <div class="dropdown">
-            <button class="btn btn-secondary" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="iconify" data-icon="mi:notification"></span>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
+                Noty
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownNotifications">
                 <li>
@@ -37,13 +37,13 @@
                     Opções
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownOpcoes">
-                    <li><a class="dropdown-item" href="/dashboard/motoristas/cadastro">Cadastrar motorista</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/veiculos/cadastro">Cadastrar veículo</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div>
+    <div id="vue-veiculos">
         
         <div v-if="errored"> 
             Nada encontrado 
@@ -56,8 +56,8 @@
             </div>
                 
             <div v-else
-                v-for="motorista in motoristas"
-                class="motorista"
+                v-for="veiculo in veiculos"
+                class="veiculo"
             >
                 <div class="table-responsive-sm list">
 
@@ -66,19 +66,19 @@
                             <td rowspan="2" class="avatar">
                                 <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
                             </td>
-                            <td>Motorista</td>
+                            <td>Veiculo</td>
                             <td>Status</td>
                             <td>Caminhão e código</td>
                             <td rowspan="2">  
                                 <div class="button">  
-                                    <a :href="'/dashboard/motoristas/detalhes-motorista/' +  motorista.MotoristaID">Ver mais</a>
+                                    <a :href="'/dashboard/veiculos/detalhes-veiculo/' +  veiculo.VeiculoID">Ver mais</a>
                                 </div>
                             </td>
                         </tr>
 
                         <tr class="table-content">
                             <td class="nome">
-                                {{ motorista.Nome.replace(/'/g, '') }}
+                                {{ veiculo.Marca.replace(/'/g, '') }}
                             </td>
                             <td>Em viagem</td>
                             <td class="veiculo">Marcopolo Cod. 
@@ -94,7 +94,7 @@
 </div>
 
 <script defer>
-    new List('page-motoristas', {
+    new List('page-veiculos', {
         valueNames: ['nome', 'registro-veiculo', 'veiculo']
     })
 </script>
