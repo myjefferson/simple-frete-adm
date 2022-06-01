@@ -51,7 +51,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/dashboard/motoristas">
+                                <a href="/dashboard/fretes">
                                     <span class="iconify" data-icon="akar-icons:shipping-box-01"></span>
                                     Fretes
                                 </a>

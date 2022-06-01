@@ -56,13 +56,24 @@ $routes->post('/action/motoristas/excluir/(:num)', 				'Motoristas\ActionsMotori
 //Veiculos - Pages
 $routes->get('/dashboard/veiculos', 							'Veiculos\VeiculosController::indexPage');
 $routes->get('/dashboard/veiculos/cadastro', 					'Veiculos\VeiculosController::cadastroPage');
-$routes->get('/dashboard/veiculos/detalhes-veiculo/(:num)',	'Veiculos\VeiculosController::detalhesPage/$1');
+$routes->get('/dashboard/veiculos/detalhes-veiculo/(:num)',		'Veiculos\VeiculosController::detalhesPage/$1');
 
 //Veiculos - ActionsDB
 $routes->get('/action/veiculos/all-veiculos', 					'Veiculos\ActionsVeiculosController::selectAllAction');
 $routes->get('/action/veiculos/detalhes-veiculo/(:num)',		'Veiculos\ActionsVeiculosController::selectOneAction/$1');
 $routes->post('/action/veiculos/cadastrar', 					'Veiculos\ActionsVeiculosController::insertVeiculo');
 
+//--------------------------------------------------------------------
+
+//Fretes - Pages
+$routes->get('/dashboard/fretes', 							'Fretes\FretesController::indexPage');
+$routes->get('/dashboard/fretes/cadastro', 					'Fretes\FretesController::cadastroPage');
+$routes->get('/dashboard/fretes/solicitacao/(:num)',		'Fretes\FretesController::detalhesPage/$1');
+
+//Fretes - ActionsDB
+$routes->get('/action/fretes/all-veiculos', 				'Veiculos\ActionsVeiculosController::selectAllAction');
+$routes->get('/action/fretes/detalhes-veiculo/(:num)',		'Veiculos\ActionsVeiculosController::selectOneAction/$1');
+$routes->post('/action/fretes/cadastrar', 					'Veiculos\ActionsVeiculosController::insertVeiculo');
 
 //--------------------------------------------------------------------
 

@@ -25,7 +25,7 @@ create table `Funcionarios`(
     Nome varchar (30) not null,
     CPF int (15) not null,
 	dataNascimento date,
-    Disponibilidade varchar (1),
+    Disponibilidade tinyint (1), /* 1 = Ativo | 2 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
@@ -48,7 +48,7 @@ create table `Motoristas`(
     Estado varchar (20),
     NumeroCasa varchar (15),
     Complemento varchar (30),
-    Disponibilidade tinyint,
+    Disponibilidade tinyint (1), /*1 = Ativo | 2 = Inativo*/
     dataCriacao datetime not null,
     dataModificacao datetime not null
 ); 
@@ -66,9 +66,28 @@ create table `Veiculos`(
     localPlaca varchar (30),
     Chassi varchar (30),
     Renavan int (20),
+    Disponibilidade tinyint (1), /*1 = Ativo | 2 = Inativo*/
+    dataCriacao datetime not null,
+    dataModificacao datetime not null
+);
+
+create table `Fretes`(
+	FreteID int (30) primary key auto_increment,
+	VeiculoID int (30),
+    MotoristaID int (30),
+    ClienteID int (30),
+    TipoCargaID int (30),
+    Origem varchar(40),
+    Destino varchar (40),
+    
     Disponibilidade varchar (1), /*A = Ativo | I = Inativo*/
     dataCriacao datetime not null,
     dataModificacao datetime not null
+);
+
+create table `TipoCargas`(
+	TipoCargaID int (30) primary key auto_increment,
+    Descricao text
 );
 
 create table `Logins`(
