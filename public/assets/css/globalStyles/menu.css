@@ -1,0 +1,35 @@
+header .menu, 
+header .sub-menu{
+    list-style: none;
+    padding: 0 8px 0 8px;
+}
+
+header .sub-menu{
+    background: #FFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 7px;
+    box-shadow: var(--global-box-shadow);
+}
+
+header .sub-menu li{
+    margin: 10px;
+}
+
+header .sub-menu li a{
+    text-decoration: none;
+    color: #666;
+}
+
+header .sub-menu li a:hover{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+header .menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

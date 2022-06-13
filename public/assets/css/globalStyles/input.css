@@ -1,0 +1,5 @@
+.menu input[type='text'].search{
+    border: none;
+    padding: 10px;
+    outline: none;
+}

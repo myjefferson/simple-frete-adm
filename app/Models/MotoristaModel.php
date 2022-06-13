@@ -8,7 +8,9 @@
         public function selectAllMotoristasDB(){
             $db = db_connect();
 
-            $table = $db->table('motoristas');
+            $table = $db->table('motoristas')
+            ->select('*')
+            ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID');
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {
@@ -26,7 +28,8 @@
                     "Endereco"          => $row->Endereco,
                     "Cidade"            => $row->Cidade,
                     "Estado"            => $row->Estado,
-                    "NumeroCasa"        => $row->NumeroCasa
+                    "NumeroCasa"        => $row->NumeroCasa,
+                    "SituacaoFreteID"   => $row->SituacaoFreteID
                 ];
             }
 
@@ -36,7 +39,10 @@
         public function selectOneMotoristaDB($MotoristaID){
             $db = db_connect();
 
-            $table = $db->table('motoristas')->where('MotoristaID', $MotoristaID);
+            $table = $db->table('motoristas')
+            ->select('*')
+            ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID')
+            ->where('MotoristaID', $MotoristaID);
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {

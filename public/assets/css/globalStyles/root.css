@@ -5,4 +5,5 @@
   
   /*definitions*/
   --global-border-buttons: 6px;
+  --global-box-shadow: 2.3px 2.3px 4px rgba(0,0,0,0.15);
 }

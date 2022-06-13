@@ -7,23 +7,23 @@
     <div class="fast-buttons">
         <div class="row">
             <div class="card col-md-3 col-sm-3">
-                <a href="/dashboard/motoristas">
+                <a href="/dashboard/motorista">
                     <div class="card-body">
                         <h5 class="card-title">Motoristas</h5>
                     </div>
                 </a>
             </div>
             <div class="card col-md-3 col-sm-3">
-                <a href="/dashboard/caminhoes">
+                <a href="/dashboard/veiculo">
                     <div class="card-body">
                         <h5 class="card-title">Caminhões</h5>
                     </div>
                 </a>
             </div>
             <div class="card col-md-3 col-sm-3">
-                <a href="#">
+                <a href="/dashboard/frete/solicitacao">
                     <div class="card-body">
-                        <h5 class="card-title">Solicitações de viagens</h5>
+                        <h5 class="card-title"> Solicitações de viagens</h5>
                     </div>
                 </a>
             </div>

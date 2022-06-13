@@ -1,8 +1,8 @@
 /*Criação do banco de dados*/
-create database SimpleFrete;
+create database simplefrete;
 
 /*Utiliza o banco de dados criado*/
-use SimpleFrete;
+use simplefrete;   
 
 /*Criação da tabela administradores*/
 create table `Administradores`(
@@ -25,7 +25,7 @@ create table `Funcionarios`(
     Nome varchar (30) not null,
     CPF int (15) not null,
 	dataNascimento date,
-    Disponibilidade tinyint (1), /* 1 = Ativo | 2 = Inativo */
+    Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
@@ -48,12 +48,10 @@ create table `Motoristas`(
     Estado varchar (20),
     NumeroCasa varchar (15),
     Complemento varchar (30),
-    Disponibilidade tinyint (1), /*1 = Ativo | 2 = Inativo*/
+    Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 ); 
-
-select * from Motoristas;
 
 create table `Veiculos`(
 	VeiculoID int (30) primary key auto_increment,
@@ -66,7 +64,7 @@ create table `Veiculos`(
     localPlaca varchar (30),
     Chassi varchar (30),
     Renavan int (20),
-    Disponibilidade tinyint (1), /*1 = Ativo | 2 = Inativo*/
+    Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
@@ -77,17 +75,25 @@ create table `Fretes`(
     MotoristaID int (30),
     ClienteID int (30),
     TipoCargaID int (30),
-    Origem varchar(40),
-    Destino varchar (40),
-    
-    Disponibilidade varchar (1), /*A = Ativo | I = Inativo*/
+    SituacaoFreteID int(10),
+    enderecoOrigem varchar(40),
+    enderecoDestino varchar (40),
+    tempoEntrega date,
+    valorTotal varchar (40),
+    Descricao text,
+    Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
 
+create table `SituacoesFrete`(
+	SituacaoFreteID int (30) primary key auto_increment,
+    DescricaoFrete varchar(30)
+);
+
 create table `TipoCargas`(
 	TipoCargaID int (30) primary key auto_increment,
-    Descricao text
+    DescricaoCarga text
 );
 
 create table `Logins`(
@@ -108,4 +114,28 @@ drop table Funcionarios;
 drop table Veiculos;
 drop table Administradores;
 drop table Motoristas;
+drop table TipoCargas;
+drop table Logins;
+drop table Fretes;
+drop table SituacoesFrete;
+*/
+
+/*insert dos tipos das cargas*/
+/*
+insert into `SituacoesFrete` set DescricaoFrete = 'Solicitação';
+insert into `SituacoesFrete` set DescricaoFrete = 'Aguardando pagamento';
+insert into `SituacoesFrete` set DescricaoFrete = 'Contratado';
+insert into `SituacoesFrete` set DescricaoFrete = 'Em andamento';
+insert into `SituacoesFrete` set DescricaoFrete = 'Finalizado';
+*/
+
+/*insert das situacoes dos fretes*/
+/*
+insert into `TipoCargas` set DescricaoCarga = 'A Granel';
+insert into `TipoCargas` set DescricaoCarga = 'Refrigerada';
+insert into `TipoCargas` set DescricaoCarga = 'Carga viva';
+insert into `TipoCargas` set DescricaoCarga = 'Transporte de veículos';
+insert into `TipoCargas` set DescricaoCarga = 'Carga de medicamentos';
+insert into `TipoCargas` set DescricaoCarga = 'Carga seca';
+insert into `TipoCargas` set DescricaoCarga = 'Cargas perigosas';
 */

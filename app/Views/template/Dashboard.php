@@ -51,19 +51,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/dashboard/fretes">
+                                <a href="/dashboard/frete/solicitacao">
                                     <span class="iconify" data-icon="akar-icons:shipping-box-01"></span>
                                     Fretes
                                 </a>
                             </li>
                             <li>
-                                <a href="/dashboard/motoristas">
+                                <a href="/dashboard/motorista">
                                     <span class="iconify" data-icon="akar-icons:person"></span>
                                     Motoristas
                                 </a>
                             </li>
                             <li>
-                                <a href="/dashboard/veiculos">
+                                <a href="/dashboard/veiculo">
                                     <span class="iconify" data-icon="fluent:vehicle-truck-cube-24-regular"></span>
                                     Veículos
                                 </a>

@@ -18,7 +18,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('LoginAdmController');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -34,46 +34,58 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // get('directory/url', 'Folder\ControllerName::index')
 
-$routes->get('/', 'LoginAdmController::index');
+//Login
+$routes->get('/', 			'Login\LoginController::index');
+$routes->get('/logout', 	'Login\LoginController::logout');
+$routes->get('/usuario', 	'Login\LoginController::usuario');
+
+//Login - ActionDB
+$routes->post('/action/login', 	'Login\ActionLoginController::login');
+
+//Home
 $routes->get('/dashboard', 'HomeController::index');
 
 //---------------------------------------------------------------------
 
-//Motoristas - Pages
-$routes->get('/dashboard/motoristas', 							'Motoristas\MotoristasController::indexPage');
-$routes->get('/dashboard/motoristas/cadastro', 					'Motoristas\MotoristasController::cadastroPage');
-$routes->get('/dashboard/motoristas/detalhes-motorista/(:num)',	'Motoristas\MotoristasController::detalhesPage/$1');
+//Motorista - Pages
+$routes->get('/dashboard/motorista', 							'Motorista\MotoristaController::indexPage');
+$routes->get('/dashboard/motorista/cadastro', 					'Motorista\MotoristaController::cadastroPage');
+$routes->get('/dashboard/motorista/detalhes-motorista/(:num)',	'Motorista\MotoristaController::detalhesPage/$1');
 
-//Motoristas - ActionsDB
-$routes->get('/action/motoristas/all-motoristas', 						'Motoristas\ActionsMotoristasController::selectAllAction');
-$routes->get('/action/motoristas/detalhes-motorista/(:num)',	'Motoristas\ActionsMotoristasController::selectOneAction/$1');
-$routes->post('/action/motoristas/cadastrar', 					'Motoristas\ActionsMotoristasController::insertAction');
-$routes->post('/action/motoristas/alterar/(:num)', 				'Motoristas\ActionsMotoristasController::updateAction/$1');
-$routes->post('/action/motoristas/excluir/(:num)', 				'Motoristas\ActionsMotoristasController::deleteAction/$1');
+//Motorista - ActionDB
+$routes->get('/action/motorista/all-motoristas', 				'Motorista\ActionMotoristaController::selectAllAction');
+$routes->get('/action/motorista/detalhe-motorista/(:num)',		'Motorista\ActionMotoristaController::selectOneAction/$1');
+$routes->post('/action/motorista/cadastrar', 					'Motorista\ActionMotoristaController::insertAction');
+$routes->post('/action/motorista/alterar/(:num)', 				'Motorista\ActionMotoristaController::updateAction/$1');
+$routes->post('/action/motorista/excluir/(:num)', 				'Motorista\ActionMotoristaController::deleteAction/$1');
 
 //---------------------------------------------------------------------
 
-//Veiculos - Pages
-$routes->get('/dashboard/veiculos', 							'Veiculos\VeiculosController::indexPage');
-$routes->get('/dashboard/veiculos/cadastro', 					'Veiculos\VeiculosController::cadastroPage');
-$routes->get('/dashboard/veiculos/detalhes-veiculo/(:num)',		'Veiculos\VeiculosController::detalhesPage/$1');
+//Veiculo - Pages
+$routes->get('/dashboard/veiculo', 								'Veiculo\VeiculoController::indexPage');
+$routes->get('/dashboard/veiculo/cadastro', 					'Veiculo\VeiculoController::cadastroPage');
+$routes->get('/dashboard/veiculo/detalhe-veiculo/(:num)',		'Veiculo\VeiculoController::detalhePage/$1');
 
-//Veiculos - ActionsDB
-$routes->get('/action/veiculos/all-veiculos', 					'Veiculos\ActionsVeiculosController::selectAllAction');
-$routes->get('/action/veiculos/detalhes-veiculo/(:num)',		'Veiculos\ActionsVeiculosController::selectOneAction/$1');
-$routes->post('/action/veiculos/cadastrar', 					'Veiculos\ActionsVeiculosController::insertVeiculo');
+//Veiculo - ActionDB
+$routes->get('/action/veiculo/all-veiculos', 					'Veiculo\ActionVeiculoController::selectAllAction');
+$routes->get('/action/veiculo/detalhes-veiculo/(:num)',			'Veiculo\ActionVeiculoController::selectOneAction/$1');
+$routes->post('/action/veiculo/cadastrar', 						'Veiculo\ActionVeiculoController::insertVeiculo');
 
 //--------------------------------------------------------------------
 
-//Fretes - Pages
-$routes->get('/dashboard/fretes', 							'Fretes\FretesController::indexPage');
-$routes->get('/dashboard/fretes/cadastro', 					'Fretes\FretesController::cadastroPage');
-$routes->get('/dashboard/fretes/solicitacao/(:num)',		'Fretes\FretesController::detalhesPage/$1');
+//Frete - Pages
+$routes->get('/dashboard/frete/solicitacao',					'Frete\FreteController::solicitacaoPage');
+$routes->get('/dashboard/frete/aguardo-pagamento',				'Frete\FreteController::pagamentoPage');
+$routes->get('/dashboard/frete/contratado',						'Frete\FreteController::contratadoPage');
+$routes->get('/dashboard/frete/em-andamento',					'Frete\FreteController::andamentoPage');
+$routes->get('/dashboard/frete/finalizado',						'Frete\FreteController::finalizadoPage');
+$routes->get('/dashboard/frete/cadastro', 						'Frete\FreteController::cadastroPage');
 
-//Fretes - ActionsDB
-$routes->get('/action/fretes/all-veiculos', 				'Veiculos\ActionsVeiculosController::selectAllAction');
-$routes->get('/action/fretes/detalhes-veiculo/(:num)',		'Veiculos\ActionsVeiculosController::selectOneAction/$1');
-$routes->post('/action/fretes/cadastrar', 					'Veiculos\ActionsVeiculosController::insertVeiculo');
+//Frete - ActionDB
+$routes->get('/action/frete/all-fretes', 					'Frete\ActionFreteController::selectAllAction');
+$routes->get('/action/frete/detalhes-frete/ (:num)',		'Frete\ActionFreteController::selectOneAction/$1');
+$routes->get('/action/frete/detalhes-frete/(:num)',			'Frete\ActionFreteController::selectOneAction/$1');
+$routes->post('/action/frete/cadastrar', 					'Frete\ActionFreteController::insertVeiculo');
 
 //--------------------------------------------------------------------
 

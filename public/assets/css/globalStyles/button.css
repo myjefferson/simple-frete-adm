@@ -1,0 +1,43 @@
+button.btnDf{
+    border-radius: 7px;
+    padding: 8px;
+    display: block;
+    border: none;
+    box-shadow: var(--global-box-shadow);
+}
+
+button.btnDf-blue{
+    background: linear-gradient(to right, #0A6FED, #05419E);
+}
+
+button.btnDf-blue:hover{
+    background:  linear-gradient(to right, #05419E, #05419E);
+}
+
+button.btnDf-white{
+    padding: 8px 13px 8px 13px;
+    background: #FFF;
+    box-shadow: var(--global-box-shadow);
+    color: var(--global-blue);
+}
+
+button.btnDf-radius{
+    border-radius: 100px;
+    color: #FFF;
+    padding: 8px 20px 8px 20px;
+}
+
+button.btnDf-radius:hover{
+    background: #FFF;
+}
+
+.notifications button{
+    border-radius: 7px;
+    font-size: 24px;
+    margin: 0;
+    border: none;
+    padding: 2px 12px 8px 12px;
+    background: #FFF;
+    box-shadow: var(--global-box-shadow);
+    color: var(--global-blue);
+}
