@@ -48,7 +48,8 @@
   padding: 6px 13px 4px 10px;
 }
 
-.lateral-nav li a:hover{
+.lateral-nav li a:hover,
+.lateral-nav li a.active{
   background: var(--global-blue);
   color: #FFF;
 }

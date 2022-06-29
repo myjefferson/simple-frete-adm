@@ -17,7 +17,7 @@
             }
         }
 
-        public function selectOneAction($VeiculoID = null){
+        public function selectOneAction(int $VeiculoID = null){
             $accessDB = new VeiculoModel();
             $query = $accessDB->selectOneVeiculoDB($VeiculoID);
 

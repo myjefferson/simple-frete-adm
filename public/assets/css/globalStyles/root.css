@@ -1,5 +1,7 @@
 :root{
   /*colors*/
+  --global-white: #FFF;
+  --global-black: #333;
   --global-blue: #0A6FED;
   --global-soft-blue: #EDF4FF;
   

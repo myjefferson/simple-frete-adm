@@ -3,11 +3,11 @@
     $jsPage;
 ?>
 
-<div id="page-index-motoristas">
+<div id="page-motoristas">
     
     <?=$viewHeaderMotorista;?>
 
-    <div>
+    <div class="row">
         <div v-if="errored"> 
             Nada encontrado 
         </div>
@@ -18,46 +18,48 @@
                 <img src="<?=base_url('assets/images/loading.gif')?>">
             </div>
                 
-            <div v-else
-                v-for="motorista in motoristas"
-                class="motorista"
+            <div v-else class="motorista"
+                
+                
             >
-                <div class="table-responsive-sm list">
-
-                    <table class="table">
-                        <tr class="table-title">
-                            <td rowspan="2" class="avatar">
-                                <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
-                            </td>
-                            <td>Motorista</td>
-                            <td>Status</td>
-                            <td>Caminhão e código</td>
-                            <td rowspan="2">  
-                                <div class="button">  
+                <ul class="list">
+                    <li 
+                        v-for="motorista in motoristas"
+                        class="col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"
+                    >
+                        <div class="card">
+                            <div class="row">
+                                <div rowspan="2" class="avatar">
+                                    <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
+                                </div>
+                                <div class="col-sm-5 col-md-5">
+                                    <label class="soft-text-info">Motorista</label>
+                                    <h4><label class="nome">{{ motorista.Nome }}</label> <label class="modelo">234</label></h4>
+                                </div>
+                                <div class="veiculo">
+                                    <label>caminhao / codigo</label>
+                                    Marcopolo Cod. 
+                                    <label class="registro-veiculo">234</label>
+                                </div>
+                                <div class="col-sm-5 col-md-4">
+                                    <label class="soft-text-info">Status</label>
+                                    <p class="color-status"><b>Em manutenção</b></p>
+                                </div>
+                                <div class="button col-md-3">  
                                     <a :href="'/dashboard/motorista/detalhe-motorista/' +  motorista.MotoristaID">Ver mais</a>
                                 </div>
-                            </td>
-                        </tr>
+                            </div>   
+                        </div>
+                    </li>
+                </ul>
 
-                        <tr class="table-content">
-                            <td class="nome">
-                                {{ motorista.Nome.replace(/'/g, '') }}
-                            </td>
-                            <td>Em viagem</td>
-                            <td class="veiculo">Marcopolo Cod. 
-                                <label class="registro-veiculo">234</label>
-                            </td>
-                        </tr>    
-                    </table>  
-                    
-                </div>
+                <script type="application/javascript">
+                    new List('page-motoristas', {
+                        valueNames: ['nome', 'registro-veiculo', 'veiculo']
+                    })
+                </script>
+
             </div>
         </div>
     </div>
 </div>
-
-<script defer>
-    new List('page-motoristas', {
-        valueNames: ['nome', 'registro-veiculo', 'veiculo']
-    })
-</script>

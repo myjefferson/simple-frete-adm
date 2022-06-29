@@ -1,28 +1,81 @@
 /**
     MAP
     1 - Cards Frete
-        1.1 - 
-    2 - More Details
+    2 - Solicitacoes
+    3 - More Details
+    4 - Colors Tags Cards
+    5 - Google Maps
 
 **/
+/*MENU*/
+.menu-frete ul li a{
+    position: relative;    
+}
+
+.menu-frete ul li a:hover:after,
+.menu-frete ul li a.active:after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 4px;
+    bottom: -14px;
+    position: absolute;
+    border-radius: 100px;
+}
+
+.menu-frete ul li a.active{
+    font-weight: bold;
+    color: var(--global-black);
+}
+
+.menu-frete ul li a.solicitacao:after{
+    background: #FFA800;
+}
+
+.menu-frete ul li a.pagamento:after{
+    background: #ED4700;
+}
+
+.menu-frete ul li a.contratado:after{
+    background: #006BAD;
+}
+
+.menu-frete ul li a.andamento:after{
+    background: #00C2FF;
+}
+
+.menu-frete ul li a.finalizado:after{
+    background: #189F00;
+}
 
 /*1 - Cards Frete*/
-#content-frete .card{
+#content-solicitacao{
+    overflow-y: scroll;
+    height: 80vh;
+    height: 100vmax;
+    height: 80vmin;
+}
+
+.list-fretes .card{
+    margin-bottom: 10px;
+}
+
+.card{
     border-radius: var(--global-border-buttons);
+    box-shadow: var(--global-box-shadow);
     overflow: hidden;
 }
 
-#content-frete .card:hover{
+.card:hover{
     border: 2px solid #0A6FED;
     cursor: pointer;
 }
 
-#content-frete .card label{
+.card label{
     font-size: 13px;
     color: #777;
 }
 
-#content-frete 
 .card 
 .card-header 
 ul{
@@ -33,16 +86,15 @@ ul{
     margin: 0;
 }
 
-#content-frete 
+ 
 .card 
 .card-header{
     background: #F8F8F8 !important;
     margin: 0;
 }
 
-#content-frete 
-.card .descricao-frete,
-#content-frete 
+.card 
+.descricao-frete, 
 .card 
 .frete-id{
     padding: 2px 10px 2px 10px;
@@ -51,7 +103,6 @@ ul{
     font-size: 13px;
 }
 
-#content-frete 
 .card 
 .card-header 
 .frete-id{
@@ -64,23 +115,96 @@ ul{
     margin: 0;
 }
 
-/*2 - Solicitacoes*/
-#content-frete 
+/*2 - Solicitacoes*/ 
 .card 
 .card-header 
 .info-solicitacao{
-    background: #FFA800;
     border-radius: var(--global-border-buttons);
 }
 
 /*3 - More Details*/
 .more-details{
-
+    padding: 0 !important;
+    background: var(--global-white);
+    border-radius: var(--global-border-buttons);
+    box-shadow: var(--global-box-shadow);
 }
 
-.map-area iframe{
-    width: 100%;
-    height: 80vh;
-    border-radius: 8px;
+.more-details .card{
+    border: none;
+    box-shadow: none;
+}
+
+/*4 - Colors Tags Cards*/
+.descricao-frete{
+    border-radius: 6px 0 0 6px;
+}
+
+.more-details .frete-id{
+    border-radius: var(--global-border-buttons) !important;
+    color: #00253b;
+}
+
+.frete-pagamento .card,
+.frete-contratado .card{
+    margin-bottom: 20px;
+}
+
+/*Solicitacao*/
+.info-solicitacao,
+#page-solicitacao .more-details .card-header{
+    background: #FFA800 !important;
+}
+
+/*Pagamento*/
+.info-pagamento{
+    color: #FFF;
+    background: #ED4700 !important;
+}
+
+/*Contratado*/
+.info-contratado{
+    color: #FFF;
+    background: #006BAD !important;
+}
+
+/*Andamento*/
+.info-andamento,
+#page-andamento .more-details .card-header{
+    color: #FFF;
+    background: #00C2FF !important;
+}
+
+/*Finalizado*/
+.info-finalizado{
+    color: #FFF;
+    background: #189F00 !important;
+}
+
+/*5 - Google Maps*/
+.map-area #map-view-direction{
+    border-radius: var(--global-border-buttons);
     box-shadow: var(--global-box-shadow);
+}
+
+.map-area #map-view-direction, .map-area {
+    height: 100% !important;
+}
+
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: "Roboto", "sans-serif";
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.refreshMap{
+    display: none;
 }

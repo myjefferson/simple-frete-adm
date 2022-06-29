@@ -7,20 +7,28 @@ use simplefrete;
 /*Criação da tabela administradores*/
 create table `Administradores`(
 	AdministradorID int (30) primary key auto_increment,
-    tipoUsuario varchar (20), /*ADM, MOT, FUN*/
     Foto text,
     Nome varchar (30) not null,
-    Sobrenome varchar(30),
     CPF int (15) not null,
+    dataNascimento date,
     Disponibilidade varchar (1),
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
 
+select * from Administradores;
+update Administradores set CPF = '2147483647' where AdministradorID = 6;
+
+insert into Administradores set 
+	Email = 'jcsjeffrey@gmail.com',
+    Senha = '78951020',
+    CPF = '60736673377';
+
+select * from Administradores;
+
 /*Criação da tabela funcionarios*/
 create table `Funcionarios`(
 	FuncionarioID int (30) primary key auto_increment,
-    tipoUsuario varchar (20) not null, /*ADM, MOT, FUN*/
     Foto text,
     Nome varchar (30) not null,
     CPF int (15) not null,
@@ -30,10 +38,11 @@ create table `Funcionarios`(
     dataModificacao datetime not null
 );
 
+select * from Funcionarios;
+
 /*Criação da tabela motoristas*/
 create table `Motoristas`(
 	MotoristaID int (30) primary key auto_increment,
-    tipoUsuario varchar (20), /*ADM, MOT, FUN*/
 	Foto text,
     Nome varchar (30) not null,
     dataNascimento date,
@@ -52,6 +61,7 @@ create table `Motoristas`(
     dataCriacao datetime not null,
     dataModificacao datetime not null
 ); 
+select * from Motoristas;
 
 create table `Veiculos`(
 	VeiculoID int (30) primary key auto_increment,
@@ -68,6 +78,7 @@ create table `Veiculos`(
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
+select * from Veiculos;
 
 create table `Fretes`(
 	FreteID int (30) primary key auto_increment,
@@ -79,33 +90,50 @@ create table `Fretes`(
     enderecoOrigem varchar(40),
     enderecoDestino varchar (40),
     tempoEntrega date,
-    valorTotal varchar (40),
+	valorDistancia double,
+    valorServicos double,
+    Pago tinyint(1),
     Descricao text,
     Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
+select * from Fretes;
 
 create table `SituacoesFrete`(
 	SituacaoFreteID int (30) primary key auto_increment,
     DescricaoFrete varchar(30)
 );
+select * from SituacoesFrete;
 
 create table `TipoCargas`(
 	TipoCargaID int (30) primary key auto_increment,
     DescricaoCarga text
 );
+select * from TipoCargas;
 
 create table `Logins`(
 	RecuperacaoID int (30) primary key auto_increment,
-    UsuarioID int (20),
+    tipoUsuario varchar (20) not null, /*ADM, MOT, FUN*/
     CPF int (15),
 	Email varchar(30) not null,
     Senha varchar (13) not null,
     chaveSeguranca text,
     dataCriacao datetime not null,
     dataModificacao datetime not null
-); 
+);
+select * from Logins where Email = 'jcsjeffrey@gmail.com' and Senha = '78951020';
+
+update Logins set 
+	Email = 'jcsjeffrey@gmail.com',
+    Senha = '78951020',
+    CPF = '60736673377',
+    tipoUsuario = 'ADMINISTRADOR'
+where CPF = '60736673377';
+
+select * from motoristas mo 
+	join fretes fe on fe.MotoristaID = mo.MotoristaID
+where mo.MotoristaID = 1
 
 /*drop de tabelas*/
 /*

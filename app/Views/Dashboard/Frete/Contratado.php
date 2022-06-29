@@ -3,53 +3,52 @@
     $jsPage;
 ?>
 
-<div id="page-index-fretes">
+<div class="page-frete" id="page-contratado">
     
     <?=$viewHeaderFrete;?>
 
-    <div>
-        <div v-if="errored"> 
-            Nada encontrado 
-        </div>
-
-        <div v-else id="content-list">
-
-            <div v-if="loading">
-                <img src="<?=base_url('assets/images/loading.gif')?>">
+    <div class="row">
+        <div class="col-12">
+            <div v-if="errored"> 
+                Nada encontrado 
             </div>
-                
-            <div v-else
-                v-for="frete in fretes"
-                class="frete"
-            >
-                <div class="table-responsive-sm list">
 
-                    <table class="table">
-                        <tr class="table-title">
-                            <td rowspan="2" class="avatar">
-                                <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
-                            </td>
-                            <td>Frete</td>
-                            <td>Status</td>
-                            <td>Caminhão e código</td>
-                            <td rowspan="2">  
-                                <div class="button">  
-                                    <a :href="'/dashboard/fretes/solicitacao/' +  frete.FreteID">Ver mais</a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr class="table-content">
-                            <td class="nome">
-                                {{ frete }}
-                            </td>
-                            <td>Em viagem</td>
-                            <td class="veiculo">Marcopolo Cod. 
-                                <label class="registro-veiculo">234</label>
-                            </td>
-                        </tr>    
-                    </table>  
+            <div v-else id="content-contratado" class="row">
+                <div v-if="loading">
+                    <img src="<?=base_url('assets/images/loading.gif')?>">
+                </div>
                     
+                <div v-else
+                    v-for="frete in fretes"
+                    class="frete-contratado col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6"
+                >
+                    <div class="card">
+                        <div class="card-header">
+                            <ul>
+                                <li><p class="descricao-frete info-contratado">{{frete.DescricaoFrete}}</p></li>
+                                <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
+                                <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label>Origem</label>
+                            <p><b>{{ frete.enderecoOrigem }}</b></p>    
+                            
+                            <label>Destino</label>
+                            <p><b>{{ frete.enderecoDestino }}</b></p>    
+                            
+                            <label>Data solicitada de saída</label>
+                            <p><b>{{ frete.tempoEntrega }}</b></p>    
+
+                            <label>Valor calculado</label>
+                            <h5><b>{{ frete.valorTotal }}</b></h5>    
+                            
+                        </div>
+                        <div class="card-footer">
+                            <label>Solicitante</label>
+                            <p><b>William Gomes</b></p>
+                        </div>
+                    </div>  
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 new Vue({
-    el: '#page-pagamento',
+    el: '#page-finalizado',
     data: {
         contentType: {'Content-Type': 'multipart/form-data'},
         loading: true,
@@ -48,7 +48,7 @@ new Vue({
     mounted() {
         axios({
             method: 'get',
-            url: '/action/frete/all-fretes?situacaoFreteID=2',
+            url: '/action/frete/all-fretes?situacaoFreteID=5',
             config: 'stream'
         })
         .then(res => {

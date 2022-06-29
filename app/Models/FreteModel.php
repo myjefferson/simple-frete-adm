@@ -29,14 +29,15 @@
 
         }
 
-        public function selectAllFretesDB(int $SituacaoFreteID = null){
+        public function selectAllFretesDB(int $SituacaoFreteID){
             $db = db_connect();
             
             $table = $db->table('fretes')
             ->select('*')
+            ->where(["situacoesfrete.SituacaofreteID" => $SituacaoFreteID])
             ->join('situacoesfrete', 'situacoesfrete.SituacaofreteID = fretes.SituacaofreteID')
             ->join('tipocargas', 'tipocargas.TipoCargaID = fretes.TipoCargaID');
-            $select  = $table->get();
+            $select = $table->get();
 
             foreach ($select->getResult() as $row) {
                 $query[] = [
@@ -82,6 +83,30 @@
             }
 
             return $this->returnResponse( $select, $query );
+        }
+
+        public function confirmSolicitacaoDB($solicitacao){
+            $db = db_connect();
+
+            $update = $db->table('fretes')
+            ->where(array("FreteID" => $solicitacao['freteID']))
+            ->update([
+                "SituacaoFreteID"   => $db->escapeString(strval($solicitacao["situacaoFreteID"]))
+            ]);
+
+            return $this->returnResponse( $update, 200 );
+        }
+
+        public function confirmPagamentoDB($pagamento){
+            $db = db_connect();
+
+            $update = $db->table('fretes')
+            ->where(array("FreteID" => $pagamento['freteID']))
+            ->update([
+                "SituacaoFreteID"   => $db->escapeString(strval($pagamento["situacaoFreteID"]))
+            ]);
+
+            return $this->returnResponse( $update, 200 );
         }
     }
 

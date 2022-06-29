@@ -27,11 +27,13 @@
             $data = $this->defaultData();
             $data['titulo'] = "Motorista | Simple Frete";
             $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/motorista/motorista.css").">";
-            $data['jsPage'] = "<script src=".base_url("assets/js/dashboard/motorista/detalhes.motorista.vue.js")." defer></script>";
+            $data['jsPage'] = "<script src=".base_url("assets/js/dashboard/motorista/detalhe.motorista.vue.js")." defer></script>";
             $data['renderPage'] = view("Dashboard/Motorista/DetalheMotorista");
 
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function cadastroPage(){
@@ -43,6 +45,8 @@
             $data['renderPage'] = view("Dashboard/Motorista/CadastroMotorista");
 
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
     }
 

@@ -4,7 +4,7 @@
     $jsPage;
 ?>
 
-<div id="page-detalhes-motorista">
+<div id="page-detalhe-motorista">
     <header class="">
         <h2><b>Motorista</b></h2>
         

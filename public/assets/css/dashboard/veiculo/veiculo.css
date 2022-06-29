@@ -1,0 +1,15 @@
+#page-veiculos .veiculos ul{
+    margin: 0;
+    padding: 0;
+}
+
+#page-veiculos .veiculos ul li{
+    list-style: none;
+    padding: 8px;
+}
+
+#page-veiculos .veiculos ul li .card{
+    padding: 10px;
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-buttons);
+}

@@ -22,7 +22,8 @@ new Vue({
 
                 }).then(function(res){
                     if(res.data.status === 1){
-                        window.location.href = res.data.redirect;
+                        window.location.reload();
+                        //window.location.href = res.data.redirect;
                     }else{
                         alert(res.data.message);
                     }

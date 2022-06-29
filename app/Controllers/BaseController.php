@@ -29,8 +29,6 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
-	
-
 	/**
 	 * Constructor.
 	 * 
@@ -40,21 +38,12 @@ class BaseController extends Controller
 	 */
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
-		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-
-		
-
-		//--------------------------------------------------------------------
-		// Preload any models, libraries, etc, here.
-		//--------------------------------------------------------------------
-		// E.g.: $this->session = \Config\Services::session();
 	}
 
 	//Default Data
 	public function defaultData(){
-
-		$data['jsjQuery'] = "<script src=".base_url("assets/js/jquery/3.6.0/jquery.slim.min.js")."></script>";
+		//$data['jsjQuery'] = "<script src=".base_url("assets/js/jquery/3.6.0/jquery.slim.min.js")."></script>";
 		$data['jsVue'] = "<script src=".base_url("assets/js/vue/vue@2.6.14.js")."></script>";
 		$data['jsAxios'] = "<script src=".base_url("assets/js/axios/axios.js")."></script>";
 		$data['jsBootstrap'] = "
@@ -71,5 +60,18 @@ class BaseController extends Controller
 								 <link rel='stylesheet' href=".base_url("assets/css/globalStyles/root.css").">";
 		
 		return $data;
+	}
+
+	// Do Not Edit This Line
+	public function verifyIfLogged(){
+		if(session()->has("tipoUsuario") && session()->has("CPF") && session()->has("Email")){
+			die(header("Location: /dashboard"));
+		}
+	}
+	
+	public function verifyIfNotLogged(){
+		if(!session()->has("tipoUsuario") && !session()->has("CPF") && !session()->has("Email")){
+			die(header("Location: /"));
+		}
 	}
 }

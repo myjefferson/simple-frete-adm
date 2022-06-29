@@ -1,5 +1,5 @@
 new Vue({
-    el: '#page-detalhes-motorista',
+    el: '#page-detalhe-motorista',
     data: {
             loading: true,
             errored: false,
@@ -102,22 +102,22 @@ new Vue({
         })
         .then(res => {
 
-            this.inputNome              = res.data.status[0].Nome
-            this.inputDataNascimento    = res.data.status[0].dataNascimento
-            this.inputCPF               = res.data.status[0].CPF
-            this.inputCNHLocal          = res.data.status[0].CNHLocal
-            this.inputCNHCategoria      = res.data.status[0].CNHCategoria
-            this.inputCNHRegistro       = res.data.status[0].CNHRegistro
-            this.inputTelefone          = res.data.status[0].Telefone
-            this.inputCEP               = res.data.status[0].CEP
-            this.inputEndereco          = res.data.status[0].Endereco
-            this.inputCidade            = res.data.status[0].Cidade
-            this.inputEstado            = res.data.status[0].Estado
-            this.inputNumeroCasa        = res.data.status[0].NumeroCasa
-            this.inputComplemento       = res.data.status[0].Complemento
-            this.inputEmail             = res.data.status[0].Email
-            this.inputSenha             = res.data.status[0].Senha
-        
+            this.inputNome              = res.data.Nome
+            this.inputDataNascimento    = res.data.dataNascimento
+            this.inputCPF               = res.data.CPF
+            this.inputCNHLocal          = res.data.CNHLocal
+            this.inputCNHCategoria      = res.data.CNHCategoria
+            this.inputCNHRegistro       = res.data.CNHRegistro
+            this.inputTelefone          = res.data.Telefone
+            this.inputCEP               = res.data.CEP
+            this.inputEndereco          = res.data.Endereco
+            this.inputCidade            = res.data.Cidade
+            this.inputEstado            = res.data.Estado
+            this.inputNumeroCasa        = res.data.NumeroCasa
+            this.inputComplemento       = res.data.Complemento
+            this.inputEmail             = res.data.Email
+            this.inputSenha             = res.data.Senha
+            
         })
         .catch(error => {
             this.errored = true

@@ -1,4 +1,4 @@
-<header class="">
+<header class="menu-motorista">
 
     <div class="row">
         <div class="col-12">
@@ -44,7 +44,7 @@
                             Opções
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownOpcoes">
-                            <li><a class="dropdown-item" href="/dashboard/veiculos/cadastro">Cadastrar veículo</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/motorista/cadastro">Cadastrar motorista</a></li>
                         </ul>
                     </div>
                 </li>

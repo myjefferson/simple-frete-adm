@@ -1,63 +1,107 @@
 <?=  
-    //Load functions VueJS
-    $jsPage;
+    //Load functions VueJS 
+    $jsPage; 
 ?>
 
-<div id="page-index-fretes">
+<div class="page-frete" id="page-andamento">
     
     <?=$viewHeaderFrete;?>
+        
+    <div class="row">
+        <div class="col-3">
+            <div v-if="errored"> 
+                Nada encontrado 
+            </div>
+            
+            <div v-else id="content-andamento">
+                <div v-if="loading">
+                    <img src="<?=base_url('assets/images/loading.gif')?>">
+                </div>
+                
+                <div v-else
+                    v-for="frete in fretes"
+                    class="list-fretes"
+                >
+                    <div class="card"  v-on:click="selectFrete(frete.FreteID)" class="frete-card">
+                        <div class="card-header">
+                            <ul>
+                                <li><p class="descricao-frete info-andamento">{{frete.DescricaoFrete}}</p></li>
+                                <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
+                                <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <label>Origem</label>
+                            <p><b>{{ frete.enderecoOrigem }}</b></p>    
+                            
+                            <label>Destino</label>
+                            <p><b>{{ frete.enderecoDestino }}</b></p>    
+                            
+                            <label>Data solicitada de saída</label>
+                            <p><b>{{ frete.tempoEntrega }}</b></p>    
 
-    <div>        
-        <div v-if="errored"> 
-            Nada encontrado 
+                            <label>Valor calculado</label>
+                            <h5><b>{{ frete.valorTotal }}</b></h5>    
+                            
+                        </div>
+                        <div class="card-footer">
+                            <label>Motorista</label>
+                            <p><b>William Gomes</b></p>
+                        </div>
+                    </div> 
+                </div>                
+            </div>
         </div>
 
-        <div v-else id="content-list">
+        <div class="col-3 more-details">
+            <div class="card">
+                <div class="card-header">
+                    <ul>
+                        <li><p class="frete-id">Código do frete: #{{ selected.FreteID }}</p></li>
+                        <li><p class="data-criacao">{{ selected.dataCriacao }}</p></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <label>Origem</label>
+                        <p><b>{{selected.enderecoOrigem}}</b></p>    
+                    
+                    <label>Destino</label>
+                    <p><b>{{selected.enderecoDestino}}</b></p>    
+                    
+                    <label>Data solicitada de saída</label>
+                    <p></p>
 
-            <div v-if="loading">
-                <img src="<?=base_url('assets/images/loading.gif')?>">
-            </div>
-                
-            <div v-else
-                v-for="frete in fretes"
-                class="frete"
-            >
-                <div class="table-responsive-sm list">
+                    <label>Descrição Frete</label>
+                    <p><b>{{ selected.DescricaoFrete }}</b></p> 
+                    
+                    <label>Descrição Carga</label>
+                    <p><b>{{ selected.DescricaoCarga }}</b></p>    
 
-                    <table class="table">
-                        <tr class="table-title">
-                            <td rowspan="2" class="avatar">
-                                <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
-                            </td>
-                            <td>Frete</td>
-                            <td>Status</td>
-                            <td>Caminhão e código</td>
-                            <td rowspan="2">  
-                                <div class="button">  
-                                    <a :href="'/dashboard/fretes/solicitacao/' +  frete.FreteID">Ver mais</a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr class="table-content">
-                            <td class="nome">
-                                {{ frete }}
-                            </td>
-                            <td>Em viagem</td>
-                            <td class="veiculo">Marcopolo Cod. 
-                                <label class="registro-veiculo">234</label>
-                            </td>
-                        </tr>    
-                    </table>  
+                    <label>Valor calculado</label>
+                    <p><b>{{ selected.valorTotal }}</b></p>   
                     
                 </div>
+                <div class="card-footer">
+                    <label>Solicitante</label>
+                    <p><b>William Gomes</b></p>
+                </div>
+
+                <div class="card-footer">
+                    <a href="" target="_blank">
+                        <span class="iconify" data-icon="logos:whatsapp"></span>
+                    </a>
+                    <button class="btnDf btnDf-blue btnDf-radius" v-on:click="confirmarSolicitacao(selected.FreteID)">Confirmar solicitação</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="map-area">
+                <div id="map-view-direction"></div>
             </div>
         </div>
     </div>
 </div>
 
-<script defer>
-    new List('page-motoristas', {
-        valueNames: ['nome', 'registro-veiculo', 'veiculo']
-    })
-</script>
+<!--CDN Test GoogleMaps-->
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly' defer></script>

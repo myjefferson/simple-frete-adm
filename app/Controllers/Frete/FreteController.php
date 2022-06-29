@@ -5,23 +5,21 @@
 
     class FreteController extends BaseController{
         
-        public function solicitacaoPage(){
-            $session = session();
-            $session->set([
-                'usuario' => 'Jefferson',
-                'email' => 'jcsjeffrey@gmail.com'
-            ]);
-            
+        public function solicitacaoPage(){            
             //templates
-            $header['viewHeaderFrete'] = view("template/HeaderFrete");           
+            $header['viewHeaderFrete'] = view("template/HeaderFrete"); 
             $data = $this->defaultData();
             $data['titulo'] = "Solicitações Fretes | Simple Frete";
             $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/frete/frete.css").">";
-            $data['jsPage'] = "<script src=".base_url("assets/js/dashboard/frete/solicitacao.frete.vue.js")." defer></script>";
+            $data['jsPage'] = "
+                <script src=".base_url("assets/js/dashboard/googleMaps.js")."></script>
+                <script src=".base_url("assets/js/dashboard/frete/solicitacao.frete.vue.js")." defer></script>";
             $data['renderPage'] = view("Dashboard/Frete/Solicitacao", $header);
             
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function pagamentoPage(){    
@@ -36,6 +34,8 @@
 
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function contratadoPage(){    
@@ -50,6 +50,8 @@
 
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function andamentoPage(){    
@@ -59,11 +61,16 @@
             $data = $this->defaultData();
             $data['titulo'] = "Em andamento | Simple Frete";
             $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/frete/frete.css").">";
-            $data['jsPage'] = "<script src=".base_url("assets/js/dashboard/fretes/andamento.frete.vue.js")." defer></script>";
+            $data['jsPage'] = "
+                            <script src=".base_url("assets/js/dashboard/googleMaps.js")."></script>            
+                            <script src=".base_url("assets/js/dashboard/frete/andamento.frete.vue.js")." defer></script>
+                        ";
             $data['renderPage'] = view("Dashboard/Frete/Andamento", $header);
 
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function finalizadoPage(){    
@@ -78,6 +85,8 @@
 
             //default template for show page
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
 
         public function cadastroPage(){
@@ -90,6 +99,8 @@
             $data['renderPage'] = view("Dashboard/Fretes/CadastroFrete");
 
             echo view("template/Dashboard", $data);
+            //verify session from user
+			return $this->verifyIfNotLogged();
         }
     }
 

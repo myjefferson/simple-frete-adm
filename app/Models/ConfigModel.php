@@ -3,37 +3,89 @@
     namespace App\Models;
     use CodeIgniter\Model;
 
-    class MotoristaModel extends Model{
+    class ConfigModel extends Model{
 
-        public function selectAllMotoristasDB(){
+        public function selectUserDB(string $tipoUsuario, string $CPF){
             $db = db_connect();
 
-            $table = $db->table('motoristas')
-            ->select('*')
-            ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID', 'left');
-            $select  = $table->get();
+            if($tipoUsuario == 'ADMINISTRADOR'){
+                $table = $db->table('administradores')
+                ->select('*');
 
-            foreach ($select->getResult() as $row) {
-                $query[] = [
-                    "MotoristaID"       => $row->MotoristaID,
-                    "tipoUsuario"       => $row->tipoUsuario,
-                    "Nome"              => $row->Nome,
-                    "dataNascimento"    => $row->dataNascimento,
-                    "CPF"               => $row->CPF,
-                    "CNHCategoria"      => $row->CNHCategoria,
-                    "CNHLocal"          => $row->CNHLocal,
-                    "CNHNumeroRegistro" => $row->CNHNumeroRegistro,
-                    "Telefone"          => $row->Telefone,
-                    "CEP"               => $row->CEP,
-                    "Endereco"          => $row->Endereco,
-                    "Cidade"            => $row->Cidade,
-                    "Estado"            => $row->Estado,
-                    "NumeroCasa"        => $row->NumeroCasa,
-                    "SituacaoFreteID"   => $row->SituacaoFreteID
-                ];
+                $select  = $table->get();
+    
+                foreach ($select->getResult() as $row) {
+                    $query[] = [
+                        "AdministradorID"   => $row->AdministradorID,
+                        "Foto"              => $row->Foto,
+                        "Nome"              => $row->Nome,
+                        "dataNascimento"    => $row->dataNascimento,
+                        "CPF"               => $row->CPF,
+                        "Disponibilidade"   => $row->Disponibilidade
+                    ];
+                }
+    
+                return $this->returnResponse( $select, $query );
+            }
+            
+            if($tipoUsuario == "MOTORISTA"){
+                $table = $db->table('motoristas')
+                ->select('*')
+                ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID');
+                $select  = $table->get();
+    
+                foreach ($select->getResult() as $row) {
+                    $query[] = [
+                        "MotoristaID"       => $row->MotoristaID,
+                        "tipoUsuario"       => $row->tipoUsuario,
+                        "Nome"              => $row->Nome,
+                        "dataNascimento"    => $row->dataNascimento,
+                        "CPF"               => $row->CPF,
+                        "CNHCategoria"      => $row->CNHCategoria,
+                        "CNHLocal"          => $row->CNHLocal,
+                        "CNHNumeroRegistro" => $row->CNHNumeroRegistro,
+                        "Telefone"          => $row->Telefone,
+                        "CEP"               => $row->CEP,
+                        "Endereco"          => $row->Endereco,
+                        "Cidade"            => $row->Cidade,
+                        "Estado"            => $row->Estado,
+                        "NumeroCasa"        => $row->NumeroCasa,
+                        "SituacaoFreteID"   => $row->SituacaoFreteID
+                    ];
+                }
+    
+                return $this->returnResponse( $select, $query );
             }
 
-            return $this->returnResponse( $select, $query );
+            if($tipoUsuario == "FUNCIONARIO"){
+                $table = $db->table('motoristas')
+                ->select('*')
+                ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID');
+                $select  = $table->get();
+    
+                foreach ($select->getResult() as $row) {
+                    $query[] = [
+                        "MotoristaID"       => $row->MotoristaID,
+                        "tipoUsuario"       => $row->tipoUsuario,
+                        "Nome"              => $row->Nome,
+                        "dataNascimento"    => $row->dataNascimento,
+                        "CPF"               => $row->CPF,
+                        "CNHCategoria"      => $row->CNHCategoria,
+                        "CNHLocal"          => $row->CNHLocal,
+                        "CNHNumeroRegistro" => $row->CNHNumeroRegistro,
+                        "Telefone"          => $row->Telefone,
+                        "CEP"               => $row->CEP,
+                        "Endereco"          => $row->Endereco,
+                        "Cidade"            => $row->Cidade,
+                        "Estado"            => $row->Estado,
+                        "NumeroCasa"        => $row->NumeroCasa,
+                        "SituacaoFreteID"   => $row->SituacaoFreteID
+                    ];
+                }
+    
+                return $this->returnResponse( $select, $query );
+            }
+
         }
 
         public function selectOneMotoristaDB($MotoristaID){
@@ -42,12 +94,13 @@
             $table = $db->table('motoristas')
             ->select('*')
             ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID')
-            ->where('motoristas.MotoristaID', $MotoristaID);
+            ->where('MotoristaID', $MotoristaID);
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {
-                $query = [
+                $query[] = [
                     "MotoristaID"       => $row->MotoristaID,
+                    "tipoUsuario"       => $row->tipoUsuario,
                     "Nome"              => $row->Nome,
                     "dataNascimento"    => $row->dataNascimento,
                     "CPF"               => $row->CPF,
@@ -103,7 +156,7 @@
                 "Foto"              => $db->escapeString($dados["foto"]),
                 "Nome"              => $db->escapeString($dados["nome"]),
                 "dataNascimento"    => $db->escapeString($dados["datanascimento"]),
-                "CPF"               => $db->escape(intval($dados["cpf"]), false),
+                "CPF"               => $db->escapeString($dados["cpf"]),
                 "CNHCategoria"      => $db->escapeString($dados["cnhcategoria"]),
                 "CNHLocal"          => $db->escapeString($dados["cnhlocal"]),
                 "CNHNumeroRegistro" => $db->escapeString($dados["cnhregistro"]),
@@ -119,7 +172,7 @@
 
             ], false)->where('MotoristaID', $db->escape( intval($dados["motoristaid"])) )->update();
 
-            return $this->returnResponse( $update, $dados );
+            return $this->returnResponse( true, $dados );
         }
 
         public function deleteOneMotoristaDB($MotoristaID){

@@ -1,8 +1,13 @@
+<?php
+    //Load functions VueJS 
+    $jsPage;
+?>
+
 <div id="page-home">
-    <div class="welcome-page">
-        <h4>Bem vindo</h4>
-        <h2>Miranda Silva</h2>
-    </div>
+    <header class="welcome-page menu-home">
+        <h4>Olá, bem vindo</h4>
+        <h2> <?=session()->get("Nome")?> </h2>
+    </header>
 
     <div class="fast-buttons">
         <div class="row">
@@ -34,20 +39,20 @@
                     </div>
                 </a>
             </div>
-            <div class="card col-md-3 col-sm-3">
+            <!-- <div class="card col-md-3 col-sm-3">
                 <a href="#">
                     <div class="card-body">
                         <h5 class="card-title">Relatório financeiro</h5>
                     </div>
                 </a>
-            </div>
-            <div class="card col-md-3 col-sm-3">
+            </div> -->
+            <!-- <div class="card col-md-3 col-sm-3">
                 <a href="#">
                     <div class="card-body">
                         <h5 class="card-title">Configurações</h5>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -56,167 +61,69 @@
             <div class="col-md-6">
                 <h5>Solicitações para fretes</h5>
                 <div class="card solicitacoes-frete">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Cod.</th>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Carga</th>
-                                <th scope="col">Data da Solicitação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <div v-if="errored">
+                        <p>Nada encontrado</p>
+                    </div>
+
+                    <div v-else>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Cod.</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Carga</th>
+                                    <th scope="col">Data da Solicitação</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                v-for="frete in fretes"
+                                class="frete"
+                            >
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
             <div class="col-md-6">
                 <h5>Viagens para concluir</h5>
                 <div class="card viagens-concluir">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Cod.</th>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Carga</th>
-                                <th scope="col">Data da Solicitação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                
+                    <div v-if="errored">
+                        <p>Nada encontrado</p>
+                    </div>
+
+                    <div v-else>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Cod.</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Carga</th>
+                                    <th scope="col">Data da Solicitação</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                v-for="frete in fretes"
+                                class="frete"
+                            >
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                    <td>{{ frete.enderecoOrigem }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>

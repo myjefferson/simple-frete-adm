@@ -37,10 +37,10 @@ $routes->setAutoRoute(true);
 //Login
 $routes->get('/', 			'Login\LoginController::index');
 $routes->get('/logout', 	'Login\LoginController::logout');
-$routes->get('/usuario', 	'Login\LoginController::usuario');
 
 //Login - ActionDB
 $routes->post('/action/login', 	'Login\ActionLoginController::login');
+$routes->get('/action/logout', 	'Login\ActionLoginController::logout');
 
 //Home
 $routes->get('/dashboard', 'HomeController::index');
@@ -50,7 +50,7 @@ $routes->get('/dashboard', 'HomeController::index');
 //Motorista - Pages
 $routes->get('/dashboard/motorista', 							'Motorista\MotoristaController::indexPage');
 $routes->get('/dashboard/motorista/cadastro', 					'Motorista\MotoristaController::cadastroPage');
-$routes->get('/dashboard/motorista/detalhes-motorista/(:num)',	'Motorista\MotoristaController::detalhesPage/$1');
+$routes->get('/dashboard/motorista/detalhe-motorista/(:num)',	'Motorista\MotoristaController::detalhePage/$1');
 
 //Motorista - ActionDB
 $routes->get('/action/motorista/all-motoristas', 				'Motorista\ActionMotoristaController::selectAllAction');
@@ -73,7 +73,7 @@ $routes->post('/action/veiculo/cadastrar', 						'Veiculo\ActionVeiculoControlle
 
 //--------------------------------------------------------------------
 
-//Frete - Pages
+//Frete - Pages - Solicitacao
 $routes->get('/dashboard/frete/solicitacao',					'Frete\FreteController::solicitacaoPage');
 $routes->get('/dashboard/frete/aguardo-pagamento',				'Frete\FreteController::pagamentoPage');
 $routes->get('/dashboard/frete/contratado',						'Frete\FreteController::contratadoPage');
@@ -82,7 +82,12 @@ $routes->get('/dashboard/frete/finalizado',						'Frete\FreteController::finaliz
 $routes->get('/dashboard/frete/cadastro', 						'Frete\FreteController::cadastroPage');
 
 //Frete - ActionDB
-$routes->get('/action/frete/all-fretes', 					'Frete\ActionFreteController::selectAllAction');
+$routes->post('/action/frete/confirmSolicitacao', 				'Frete\ActionFreteController::confirmSolicitacaoAction');
+$routes->post('/action/frete/confirmPagamento', 				'Frete\ActionFreteController::confirmPagamentoAction');
+$routes->get('/action/frete/all-fretes', 						'Frete\ActionFreteController::selectAllAction');
+
+
+
 $routes->get('/action/frete/detalhes-frete/ (:num)',		'Frete\ActionFreteController::selectOneAction/$1');
 $routes->get('/action/frete/detalhes-frete/(:num)',			'Frete\ActionFreteController::selectOneAction/$1');
 $routes->post('/action/frete/cadastrar', 					'Frete\ActionFreteController::insertVeiculo');
@@ -95,7 +100,7 @@ $routes->get('/dashboard/financeiro', 'FinanceiroController::index');
 //--------------------------------------------------------------------
 
 //Configurações
-$routes->get('/dashboard/config', 'ConfigController::index');
+$routes->get('/dashboard/config', 'Config\ConfigController::index');
 
 /*
  * --------------------------------------------------------------------

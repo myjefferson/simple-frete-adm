@@ -1,4 +1,4 @@
-<header class="">
+<header class="menu-veiculo">
     
     <div class="row">
         <div class="col-12">
@@ -8,7 +8,7 @@
                 </li>
                 <li>
                     <ul class="sub-menu">
-                        <input type="text" class="search" placeholder="Busque por nome">
+                        <input type="text" class="search" placeholder="Busque por marca / modelo">
                     </ul>
                 </li>
                 <li>
@@ -26,8 +26,7 @@
             </ul>
         </div>
     </div>
-    
-    
+     
     <div class="row">
         <div class="col-12">
             <ul class="menu">
@@ -44,7 +43,7 @@
                             Opções
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownOpcoes">
-                            <li><a class="dropdown-item" href="/dashboard/veiculos/cadastro">Cadastrar veículo</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/veiculo/cadastro">Cadastrar veículo</a></li>
                         </ul>
                     </div>
                 </li>

@@ -1,5 +1,5 @@
 new Vue({
-    el: '#page-index-fretes',
+    el: '#page-contratado',
     data: {
             loading: true,
             errored: false,
@@ -15,11 +15,10 @@ new Vue({
     mounted() {
         axios({
             method: 'get',
-            url: '/action/frete/all-fretes'
+            url: '/action/frete/all-fretes?situacaoFreteID=3'
         })
         .then(res => {
-            //console.log(this.fretes);
-            this.fretes = res.data.status
+            this.fretes = res.data
         })
         .catch(error => {
             this.errored = true

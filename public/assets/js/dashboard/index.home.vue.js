@@ -1,17 +1,18 @@
 new Vue({
-    el: '#vue-veiculos',
+    el: '#page-home',
     data: {
             loading: true,
             errored: false,
-            veiculos: []
+            fretes: []
     },
     mounted() {
         axios({
             method: 'get',
-            url: '/action/veiculo/all-veiculos'
+            url: '/action/frete/all-fretes'
         })
         .then(res => {
-            this.veiculos = res.data.status
+            this.fretes = res.data
+            console.log(this.fretes);
         })
         .catch(error => {
             this.errored = true

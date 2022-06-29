@@ -1,25 +1,33 @@
 new Vue({
-    el: '#page-pagamento',
+    el: '#page-andamento',
     data: {
-        contentType: {'Content-Type': 'multipart/form-data'},
-        loading: true,
-        errored: false,
-        fretes: [],
+            contentType: {'Content-Type': 'multipart/form-data'},
+            loading: true,
+            errored: false,
+            fretes: [],
+            selected: [],
 
-        FreteID: "",
-        dataCriacao: "",
-        enderecoOrigem: "",
-        enderecoDestino: "",
-        tempoEntrega: "",
-        valorTotal: ""
+            FreteID: "",
+            dataCriacao: "",
+            enderecoOrigem: "",
+            enderecoDestino: "",
+            tempoEntrega: "",
+            valorTotal: ""
     },
-    method: {
-        confirmarPagamento(freteID){
+    methods:{
+        selectFrete(freteid){
+            const findSelected = this.fretes.find(id => (id.FreteID === freteid)) 
+            this.selected = findSelected
+
+            onChangeHandler(this.selected.enderecoOrigem, this.selected.enderecoDestino)
+        },
+
+        confirmarSolicitacao(freteID){
             
             if(freteID != "" && freteID != undefined){
                 let formData = new FormData();    
-                formData.append('action',           'confirmPagamento')   
-                formData.append('situacaoFreteID',  3)   
+                formData.append('action',           'confirmSolicitacao')   
+                formData.append('situacaoFreteID',  2)   
                 formData.append('freteID',          freteID)   
                 //formData.append('clienteid',    clienteid)
                 // formData.append('motoristaid',    clienteid)
@@ -27,7 +35,7 @@ new Vue({
     
                 axios({
                     method: 'post',
-                    url: `/action/frete/confirmPagamento`,
+                    url: `/action/frete/confirmSolicitacao`,
                     data: formData,
                     config: { headers: this.contentType }
                 })
@@ -48,11 +56,9 @@ new Vue({
     mounted() {
         axios({
             method: 'get',
-            url: '/action/frete/all-fretes?situacaoFreteID=2',
-            config: 'stream'
+            url: '/action/frete/all-fretes?situacaoFreteID=4'
         })
         .then(res => {
-            //console.log(this.fretes);
             this.fretes = res.data
         })
         .catch(error => {

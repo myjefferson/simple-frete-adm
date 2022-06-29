@@ -1,4 +1,4 @@
-<header class="">
+<header class="menu-frete">
     <div class="row">
         <div class="col-3 col-sm-3">
             <h3><b>Gestão de Fretes</b></h3>
@@ -10,12 +10,13 @@
             <ul class="menu">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="/dashboard/frete/solicitacao">Solicitações</a></li>
-                        <li><a href="/dashboard/frete/aguardo-pagamento">Aguardando pagamento</a></li>
-                        <li><a href="/dashboard/frete/contratado">Contratado</a></li>
-                        <li><a href="/dashboard/frete/em-andamento">Em andamento</a></li>
-                        <li><a href="/dashboard/frete/finalizado">Fretes finalizados</a></li>
+                        <li><a href="/dashboard/frete/solicitacao" class="solicitacao">Solicitações</a></li>
+                        <li><a href="/dashboard/frete/aguardo-pagamento" class="pagamento">Pagamentos</a></li>
+                        <li><a href="/dashboard/frete/contratado" class="contratado">Contratados</a></li>
+                        <li><a href="/dashboard/frete/em-andamento" class="andamento">Em andamento</a></li>
+                        <li><a href="/dashboard/frete/finalizado" class="finalizado">Fretes finalizados</a></li>
                     </ul>
+                    
                 </li>
                 <li>
                     <div class="dropdown notifications">
@@ -44,3 +45,12 @@
         </div> -->
     </div>
 </header>
+
+<script type="application/javascript">
+
+    var pageFrete = document.querySelector(".page-frete")
+    var getAttr =  pageFrete.getAttribute("id").split("-").pop()
+
+    document.querySelector(`a.${getAttr}`).classList.add("active");
+
+</script>

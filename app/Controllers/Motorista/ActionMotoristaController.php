@@ -8,24 +8,12 @@
 
         public function selectAllAction(){
             $accessDB = new MotoristaModel();
-            $query = $accessDB->selectAllMotoristasDB();
-    
-            if($query != "304"){
-                echo json_encode(["status" => $query]);
-            }else{
-                echo json_encode(["status" => 304]);
-            }
+            print_r(json_encode($accessDB->selectAllMotoristasDB()));
         }
 
         public function selectOneAction($MotoristaID = null){
             $accessDB = new MotoristaModel();
-            $query = $accessDB->selectOneMotoristaDB($MotoristaID);
-    
-            if($query != "304"){
-                echo json_encode(["status" => $query]);
-            }else{
-                echo json_encode(["status" => 304]);
-            }
+            print_r(json_encode($accessDB->selectOneMotoristaDB($MotoristaID)));
         }
 
         public function insertAction(){
@@ -82,14 +70,7 @@
                 $dados["email"]             = $this->request->getPost("email");
                 $dados["senha"]             = $this->request->getPost("senha");
 
-                $query = $accessDB->updateMotoristaDB($dados);
-        
-                //var_dump($query);
-                if($query == "200"){
-                    echo json_encode(["status" => 200]);
-                }else{
-                    echo json_encode(["status" => 304]);
-                }
+                print_r(json_encode($accessDB->updateMotoristaDB($dados)));
             }
         }
 

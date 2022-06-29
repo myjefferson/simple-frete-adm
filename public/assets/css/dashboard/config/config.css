@@ -1,3 +1,37 @@
-body{
-    
+section{
+    margin-top: 20px;
+    background: #FFF;
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-buttons);
+    padding: 15px;
+}
+
+#aparencia input[type=radio]{
+    display: none;
+}
+
+#aparencia input[type=radio] + label{
+    cursor: pointer;
+    padding: 8px 15px 8px 15px;
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-buttons);
+}
+
+#aparencia input[type=radio] + label[for=white-mode]{
+    color: var(--global-blue);
+}
+
+#aparencia input[type=radio]:checked + label[for=white-mode]{
+    border: 2px solid #FFF;
+    outline: 3px solid var(--global-blue);
+}
+
+#aparencia input[type=radio] + label[for=dark-mode]{
+    background: #0E2648;
+    color: #FFF;
+}
+
+#aparencia input[type=radio]:checked + label[for=dark-mode]{
+    border: 2px solid #FFF;
+    outline: 3px solid var(--global-blue);
 }

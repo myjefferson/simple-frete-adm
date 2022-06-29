@@ -1,5 +1,5 @@
 new Vue({
-    el: '#page-index-motoristas',
+    el: '#page-motoristas',
     data: {
             loading: true,
             errored: false,
@@ -12,7 +12,7 @@ new Vue({
         })
         .then(res => {
             //console.log(this.motoristas);
-            this.motoristas = res.data.status
+            this.motoristas = res.data
         })
         .catch(error => {
             this.errored = true
