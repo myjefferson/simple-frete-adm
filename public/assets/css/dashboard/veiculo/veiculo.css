@@ -12,4 +12,6 @@
     padding: 10px;
     box-shadow: var(--global-box-shadow);
     border-radius: var(--global-border-buttons);
+    background: var(--global-primary);
+    color: var(--global-text-color)
 }

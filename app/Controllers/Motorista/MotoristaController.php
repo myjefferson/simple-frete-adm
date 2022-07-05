@@ -40,7 +40,7 @@
         
             $data = $this->defaultData();
             $data['titulo'] = "Cadastro de Motoristas | Simple Frete";
-            $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/motorista/motorista-cadastro.css").">";
+            $data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/motorista/motorista.css").">";
             $data['jsPage'] = "<script src=".base_url("assets/js/dashboard/motorista/cadastro.motorista.vue.js")." defer></script>";
             $data['renderPage'] = view("Dashboard/Motorista/CadastroMotorista");
 

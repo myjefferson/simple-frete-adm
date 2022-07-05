@@ -5,7 +5,7 @@
 
 .welcome-page 
 h4{
-  color: #666;
+  color: var(--global-text-color);
   margin: 0;
   font-weight: 600;
 }
@@ -13,7 +13,7 @@ h4{
 .welcome-page 
 h2{
   font-weight: bold;
-  color: var(--bs-dark);
+  color: var(--global-text-color);
 }
 
 /*fast buttons*/
@@ -27,12 +27,13 @@ h2{
 .fast-buttons 
 a{
   text-decoration: none;
+  color: var(--global-text-color);
 }
 
 .fast-buttons 
 .card 
 .card-body{
-  background: #FFFF;
+  background: var(--global-primary);
   border-radius: var(--global-border-buttons);
   box-shadow: 2px 2px 5px rgba(0,0,0,.075);
 }
@@ -45,12 +46,28 @@ a{
 .special-cards h5{
   margin-bottom: 10px;
   font-weight: 600;
+  color: var(--global-text-color);
 }
 
 .special-cards 
 .card{
   border-radius: var(--global-border-buttons);
+  background: var(--global-primary);
 }
+
+.special-cards
+.card table{
+  color: var(--global-text-color);
+}
+
+.special-cards .card 
+table tbody tr:hover{
+  cursor: pointer;  
+  background: #f0f0f0;
+  color: #0A6FED;
+}
+
+
 
 /*default size and scroll tables*/
 .special-cards .solicitacoes-frete,

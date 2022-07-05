@@ -8,12 +8,12 @@
 
 **/
 /*MENU*/
-.menu-frete ul li a{
+.menu-frete ul.status li a{
     position: relative;    
 }
 
-.menu-frete ul li a:hover:after,
-.menu-frete ul li a.active:after{
+.menu-frete ul.status li a:hover:after,
+.menu-frete ul.status li a.active:after{
     display: block;
     content: "";
     width: 100%;
@@ -23,37 +23,39 @@
     border-radius: 100px;
 }
 
-.menu-frete ul li a.active{
+.menu-frete ul.status li a.active{
     font-weight: bold;
     color: var(--global-black);
 }
 
-.menu-frete ul li a.solicitacao:after{
+.menu-frete ul.status li a.solicitacao:after{
     background: #FFA800;
 }
 
-.menu-frete ul li a.pagamento:after{
+.menu-frete ul.status li a.pagamento:after{
     background: #ED4700;
 }
 
-.menu-frete ul li a.contratado:after{
+.menu-frete ul.status li a.contratado:after{
     background: #006BAD;
 }
 
-.menu-frete ul li a.andamento:after{
+.menu-frete ul.status li a.andamento:after{
     background: #00C2FF;
 }
 
-.menu-frete ul li a.finalizado:after{
+.menu-frete ul.status li a.finalizado:after{
     background: #189F00;
 }
 
 /*1 - Cards Frete*/
-#content-solicitacao{
+#content-solicitacao,
+#content-andamento{
     overflow-y: scroll;
     height: 80vh;
     height: 100vmax;
     height: 80vmin;
+    padding: 2px;
 }
 
 .list-fretes .card{
@@ -64,21 +66,23 @@
     border-radius: var(--global-border-buttons);
     box-shadow: var(--global-box-shadow);
     overflow: hidden;
+    background: var(--global-primary) !important;
+    transition: none !important;
 }
 
 .card:hover{
-    border: 2px solid #0A6FED;
+    outline: 2px solid #0A6FED;
     cursor: pointer;
 }
 
 .card label{
     font-size: 13px;
-    color: #777;
+    color: var(--global-text-color);
 }
 
 .card 
 .card-header 
-ul{
+ul.status{
     display: flex;
     flex-direction: row;
     list-style: none;
@@ -86,10 +90,9 @@ ul{
     margin: 0;
 }
 
- 
 .card 
 .card-header{
-    background: #F8F8F8 !important;
+    background: var(--global-primary) !important;
     margin: 0;
 }
 
@@ -111,8 +114,20 @@ ul{
 }
 
 .card-footer{
-    background-color: #FFF !important;
+    background-color: var(--global-primary) !important;
     margin: 0;
+}
+
+.card-footer .button-action{
+    display: flex;
+    align-items: center;
+    padding-right: 6px !important;
+}
+
+.card-footer .button-action button{
+    padding: 0 8px 0 8px;
+    height: 45px;
+    width: 100%;
 }
 
 /*2 - Solicitacoes*/ 
@@ -133,6 +148,13 @@ ul{
 .more-details .card{
     border: none;
     box-shadow: none;
+}
+
+.more-details select{
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 5px;
 }
 
 /*4 - Colors Tags Cards*/
@@ -158,20 +180,20 @@ ul{
 
 /*Pagamento*/
 .info-pagamento{
-    color: #FFF;
+    color: var(--global-text-color);
     background: #ED4700 !important;
 }
 
 /*Contratado*/
 .info-contratado{
-    color: #FFF;
+    color: var(--global-text-color);
     background: #006BAD !important;
 }
 
 /*Andamento*/
 .info-andamento,
 #page-andamento .more-details .card-header{
-    color: #FFF;
+    color: var(--global-text-color);
     background: #00C2FF !important;
 }
 
@@ -196,7 +218,7 @@ ul{
     top: 10px;
     left: 25%;
     z-index: 5;
-    background-color: #fff;
+    background-color: var(--global-primary);
     padding: 5px;
     border: 1px solid #999;
     text-align: center;

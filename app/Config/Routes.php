@@ -74,33 +74,34 @@ $routes->post('/action/veiculo/cadastrar', 						'Veiculo\ActionVeiculoControlle
 //--------------------------------------------------------------------
 
 //Frete - Pages - Solicitacao
-$routes->get('/dashboard/frete/solicitacao',					'Frete\FreteController::solicitacaoPage');
-$routes->get('/dashboard/frete/aguardo-pagamento',				'Frete\FreteController::pagamentoPage');
-$routes->get('/dashboard/frete/contratado',						'Frete\FreteController::contratadoPage');
-$routes->get('/dashboard/frete/em-andamento',					'Frete\FreteController::andamentoPage');
-$routes->get('/dashboard/frete/finalizado',						'Frete\FreteController::finalizadoPage');
-$routes->get('/dashboard/frete/cadastro', 						'Frete\FreteController::cadastroPage');
+$routes->get('/dashboard/frete/solicitacao',			'Frete\FreteController::solicitacaoPage');
+$routes->get('/dashboard/frete/aguardo-pagamento',		'Frete\FreteController::pagamentoPage');
+$routes->get('/dashboard/frete/contratado',				'Frete\FreteController::contratadoPage');
+$routes->get('/dashboard/frete/em-andamento',			'Frete\FreteController::andamentoPage');
+$routes->get('/dashboard/frete/finalizado',				'Frete\FreteController::finalizadoPage');
+$routes->get('/dashboard/frete/cadastro', 				'Frete\FreteController::cadastroPage');
 
 //Frete - ActionDB
-$routes->post('/action/frete/confirmSolicitacao', 				'Frete\ActionFreteController::confirmSolicitacaoAction');
-$routes->post('/action/frete/confirmPagamento', 				'Frete\ActionFreteController::confirmPagamentoAction');
-$routes->get('/action/frete/all-fretes', 						'Frete\ActionFreteController::selectAllAction');
+$routes->post('/action/frete/confirmFrete', 	'Frete\ActionFreteController::confirmFreteAction');
+$routes->get('/action/frete/all-fretes', 		'Frete\ActionFreteController::selectAllAction');
 
-
-
-$routes->get('/action/frete/detalhes-frete/ (:num)',		'Frete\ActionFreteController::selectOneAction/$1');
+//pendentes - vvvvvv
 $routes->get('/action/frete/detalhes-frete/(:num)',			'Frete\ActionFreteController::selectOneAction/$1');
-$routes->post('/action/frete/cadastrar', 					'Frete\ActionFreteController::insertVeiculo');
+$routes->post('/action/frete/cadastrar', 		'Frete\ActionFreteController::insertVeiculo');
 
 //--------------------------------------------------------------------
 
-//Financeiro
+//Financeiro - Pages
 $routes->get('/dashboard/financeiro', 'FinanceiroController::index');
 
 //--------------------------------------------------------------------
 
-//Configurações
+//Configurações - Pages
 $routes->get('/dashboard/config', 'Config\ConfigController::index');
+
+//Configurações - ActionDB
+$routes->post('/action/config/update', 				'Config\ActionConfigController::updateAction');
+
 
 /*
  * --------------------------------------------------------------------

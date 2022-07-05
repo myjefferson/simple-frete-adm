@@ -21,14 +21,20 @@
             if($user['tipoUsuario'] != "" || $user['Email'] != "" || $user['CPF'] != ""){
                 if($user['tipoUsuario'] == 'ADMINISTRADOR'){
 
-                    $tableAdm = $db->table('administradores')
-                    ->select('AdministradorID, Foto, Nome, CPF, Disponibilidade')
-                    ->where(['CPF' => $user['CPF']]);
+                    $tableAdm = $db->table('administradores adm')
+                    ->join(
+                        "configuracoes config", 
+                        "config.tipoUsuario = 'ADMINISTRADOR' AND
+                         config.UserID = adm.AdministradorID", 
+                        "left"
+                    )
+                    ->select('AdministradorID, Foto, Nome, CPF, Disponibilidade, lightMode')
+                    ->where(['adm.CPF' => $user['CPF']]);
                     $selectAdm  = $tableAdm->get();
 
                     session()->set([
-                        "" => $selectAdm->getResultArray()[0]['AdministradorID'],
-                        "AdministradorID" => $selectAdm->getResultArray()[0]['AdministradorID'],
+                        "lightMode" => $selectAdm->getResultArray()[0]['lightMode'],
+                        "UserID" => $selectAdm->getResultArray()[0]['AdministradorID'],
                         "tipoUsuario" => $user['tipoUsuario'],
                         "Nome" => $selectAdm->getResultArray()[0]['Nome'],
                         "Email" => $user['Email'],

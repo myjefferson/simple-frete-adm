@@ -4,6 +4,10 @@ new Vue({
             contentType: {'Content-Type': 'multipart/form-data'},
             loading: true,
             errored: false,
+            options: {
+                'titleCriar': 'Crar solicitação',
+                'linkCriar': 'link/criar'
+            },
             fretes: [],
             selected: [],
 
@@ -26,27 +30,21 @@ new Vue({
             
             if(freteID != "" && freteID != undefined){
                 let formData = new FormData();    
-                formData.append('action',           'confirmSolicitacao')   
+                formData.append('action',           'confirmFrete')   
                 formData.append('situacaoFreteID',  2)   
                 formData.append('freteID',          freteID)   
-                //formData.append('clienteid',    clienteid)
-                // formData.append('motoristaid',    clienteid)
-                // formData.append('caminhaoid',    this.selected.caminhaoid)
     
                 axios({
                     method: 'post',
-                    url: `/action/frete/confirmSolicitacao`,
+                    url: `/action/frete/confirmFrete`,
                     data: formData,
                     config: { headers: this.contentType }
                 })
                 .then(res => {
-                    console.log("rodando")
+                    this.fretes.splice(this.fretes.indexOf(freteID), 1)
                 })
                 .catch(error => {
                     console.log("Erro na requisição")
-                })
-                .finally(() => {
-                    //this.loading = false
                 })
             }else{
                 alert("Selecione uma solicitação");

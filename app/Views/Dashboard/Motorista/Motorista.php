@@ -3,7 +3,7 @@
     $jsPage;
 ?>
 
-<div id="page-motoristas">
+<div id="page-motorista">
     
     <?=$viewHeaderMotorista;?>
 
@@ -18,10 +18,7 @@
                 <img src="<?=base_url('assets/images/loading.gif')?>">
             </div>
                 
-            <div v-else class="motorista"
-                
-                
-            >
+            <div v-else class="motorista">
                 <ul class="list">
                     <li 
                         v-for="motorista in motoristas"
@@ -29,24 +26,27 @@
                     >
                         <div class="card">
                             <div class="row">
-                                <div rowspan="2" class="avatar">
-                                    <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
+                                <div class="col-md-4 separe">
+                                    <div rowspan="2" class="avatar">
+                                        <img v-bind:src="'../upload/'+motorista.Foto" onerror="this.onerror=null; this.src='<?=base_url('./assets/images/avatar.png') ?>'">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="soft-text-info">Motorista</label>
+                                        <h4><label class="nome">{{ motorista.Nome }}</label> <label class="modelo">234</label></h4>
+                                    </div>
                                 </div>
-                                <div class="col-sm-5 col-md-5">
-                                    <label class="soft-text-info">Motorista</label>
-                                    <h4><label class="nome">{{ motorista.Nome }}</label> <label class="modelo">234</label></h4>
-                                </div>
-                                <div class="veiculo">
-                                    <label>caminhao / codigo</label>
-                                    Marcopolo Cod. 
-                                    <label class="registro-veiculo">234</label>
-                                </div>
-                                <div class="col-sm-5 col-md-4">
-                                    <label class="soft-text-info">Status</label>
-                                    <p class="color-status"><b>Em manutenção</b></p>
-                                </div>
-                                <div class="button col-md-3">  
-                                    <a :href="'/dashboard/motorista/detalhe-motorista/' +  motorista.MotoristaID">Ver mais</a>
+                                <div class="col-md-8 separe">
+                                    <div class="col-md-4">
+                                        <label class="soft-text-info">Status</label>
+                                        <p class="color-status"><b>Em manutenção</b></p>
+                                    </div>
+                                    <div class="veiculo col-md-5">
+                                        <label>caminhao / codigo</label>
+                                        <p class="registro-veiculo"><b>Marcopolo Cod. 234</b></p>
+                                    </div>
+                                    <div class="button col-md-3">  
+                                        <a :href="'/dashboard/motorista/detalhe-motorista/' +  motorista.MotoristaID">Ver mais</a>
+                                    </div>
                                 </div>
                             </div>   
                         </div>
@@ -54,7 +54,7 @@
                 </ul>
 
                 <script type="application/javascript">
-                    new List('page-motoristas', {
+                    new List('page-motorista', {
                         valueNames: ['nome', 'registro-veiculo', 'veiculo']
                     })
                 </script>

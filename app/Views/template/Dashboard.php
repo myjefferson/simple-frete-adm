@@ -34,74 +34,76 @@
 
 	</head>
 	<body>
-        <div class="container-fluid">
-            <div class="line-style"></div>
-            
-            <div class="row">
-                <div class="col-md-2 col-lg-2 lateral-nav">
-                    <nav class="content-nav col-md-2 col-lg-2">
-                        <a href="">
-                            <img class="brand" src="<?=base_url("./assets/images/brand.svg")?>" alt="Simple Frete System - Administração">
-                        </a>
-                        <ul class="menu-dashboard">
-                            <li>
-                                <a href="/dashboard" class="home">
-                                    <span class="iconify" data-icon="bx:home"></span> 
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/dashboard/frete/solicitacao" class="frete">
-                                    <span class="iconify" data-icon="akar-icons:shipping-box-01"></span>
-                                    Fretes
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/dashboard/motorista" class="motorista">
-                                    <span class="iconify" data-icon="akar-icons:person"></span>
-                                    Motoristas
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/dashboard/veiculo" class="veiculo">
-                                    <span class="iconify" data-icon="fluent:vehicle-truck-cube-24-regular"></span>
-                                    Veículos
-                                </a>
-                            </li>
-                            <!-- <li>
-                                <a href="/dashboard/financeiro">
-                                    <span class="iconify" data-icon="mdi:finance"></span>
-                                    Financeiro
-                                </a>
-                            </li> -->
-                            <li>
-                                <a href="/dashboard/config" class="config">
-                                    <span class="iconify" data-icon="majesticons:settings-cog-line"></span>
-                                    Configurações
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/action/logout">
-                                    <span class="iconify" data-icon="bx:exit"></span>
-                                    Sair
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-md-10 col-lg-10 content-page">
-                    <?= $renderPage ?>
+        <main id="main" class="<?=session()->get('lightMode')?>">
+            <div class="container-fluid">
+                <div class="line-style"></div>
+                
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 lateral-nav">
+                        <nav class="content-nav col-md-2 col-lg-2">
+                            <a href="">
+                                <img class="brand" src="<?=base_url("./assets/images/brand.svg")?>" alt="Simple Frete System - Administração">
+                            </a>
+                            <ul class="menu-dashboard">
+                                <li>
+                                    <a href="/dashboard" class="home">
+                                        <span class="iconify" data-icon="bx:home"></span> 
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/dashboard/frete/solicitacao" class="frete">
+                                        <span class="iconify" data-icon="akar-icons:shipping-box-01"></span>
+                                        Fretes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/dashboard/motorista" class="motorista">
+                                        <span class="iconify" data-icon="akar-icons:person"></span>
+                                        Motoristas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/dashboard/veiculo" class="veiculo">
+                                        <span class="iconify" data-icon="fluent:vehicle-truck-cube-24-regular"></span>
+                                        Veículos
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="/dashboard/financeiro">
+                                        <span class="iconify" data-icon="mdi:finance"></span>
+                                        Financeiro
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a href="/dashboard/config" class="config">
+                                        <span class="iconify" data-icon="majesticons:settings-cog-line"></span>
+                                        Configurações
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/action/logout">
+                                        <span class="iconify" data-icon="bx:exit"></span>
+                                        Sair
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-10 col-lg-10 content-page">
+                        <?= $renderPage ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <script>
+            <script>
 
-            var dashboard = document.querySelector("header");
-            var getAttr = dashboard.getAttribute("class").split("-").pop();
+                var dashboard = document.querySelector("header");
+                var getAttr = dashboard.getAttribute("class").split("-").pop();
 
-            document.querySelector(`.menu-dashboard a.${getAttr}`).classList.add("active")
+                document.querySelector(`.menu-dashboard a.${getAttr}`).classList.add("active")
 
-        </script>
+            </script>
+        </main>
     </body>
 </html>

@@ -1,11 +1,36 @@
-:root{
-  /*colors*/
-  --global-white: #FFF;
-  --global-black: #333;
-  --global-blue: #0A6FED;
-  --global-soft-blue: #EDF4FF;
-  
-  /*definitions*/
+.white-mode{
+  --global-primary: #FFF;
+  --global-secondary: #EDF4FF;
+  --global-color-blue: #0A6FED;
+  --global-bg-black: #333;
+
+  --global-text-color: #222;
+
+  --global-input-color: #FFF;
+  --global-text-placeholder-color: #000;
+
+  --global-color-button: #FFF;
+  --global-hover-blue: #0A6FED;
+
+  --global-border-buttons: 6px;
+  --global-box-shadow: 2.3px 2.3px 4px rgba(0,0,0,0.15);
+}
+
+
+.dark-mode {
+  --global-primary: #3E4D6A;
+  --global-secondary: #171D30;
+  --global-color-blue: #0A6FED;
+  --global-bg-black: #333;
+
+  --global-text-color: #FFF;
+  --global-text-placeholder-color: #bbb;
+
+  --global-input-color: #63748F;
+
+  --global-color-button: #3E4D6A;
+  --global-hover-blue: #0B7BFF;
+    
   --global-border-buttons: 6px;
   --global-box-shadow: 2.3px 2.3px 4px rgba(0,0,0,0.15);
 }

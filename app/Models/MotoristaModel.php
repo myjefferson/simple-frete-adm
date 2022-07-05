@@ -9,14 +9,31 @@
             $db = db_connect();
 
             $table = $db->table('motoristas')
-            ->select('*')
+            ->select('
+                motoristas.MotoristaID,
+                Foto,
+                Nome,
+                dataNascimento,
+                CPF,
+                CNHCategoria,
+                CNHLocal,
+                CNHNumeroRegistro,
+                Telefone,
+                CEP,
+                Endereco,
+                Cidade,
+                Estado,
+                Bairro,
+                NumeroCasa,
+                fretes.SituacaoFreteID
+            ')
             ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID', 'left');
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {
                 $query[] = [
                     "MotoristaID"       => $row->MotoristaID,
-                    "tipoUsuario"       => $row->tipoUsuario,
+                    "Foto"              => $row->Foto,
                     "Nome"              => $row->Nome,
                     "dataNascimento"    => $row->dataNascimento,
                     "CPF"               => $row->CPF,
@@ -28,6 +45,7 @@
                     "Endereco"          => $row->Endereco,
                     "Cidade"            => $row->Cidade,
                     "Estado"            => $row->Estado,
+                    "Bairro"            => $row->Bairro,
                     "NumeroCasa"        => $row->NumeroCasa,
                     "SituacaoFreteID"   => $row->SituacaoFreteID
                 ];
@@ -40,14 +58,32 @@
             $db = db_connect();
 
             $table = $db->table('motoristas')
-            ->select('*')
-            ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID')
+            ->select('
+                motoristas.MotoristaID,
+                Foto,
+                Nome,
+                dataNascimento,
+                CPF,
+                CNHCategoria,
+                CNHLocal,
+                CNHNumeroRegistro,
+                Telefone,
+                CEP,
+                Endereco,
+                Cidade,
+                Estado,
+                Bairro,
+                NumeroCasa,
+                fretes.SituacaoFreteID
+            ')
+            ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID', 'left')
             ->where('motoristas.MotoristaID', $MotoristaID);
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {
                 $query = [
                     "MotoristaID"       => $row->MotoristaID,
+                    "Foto"              => $row->Foto,
                     "Nome"              => $row->Nome,
                     "dataNascimento"    => $row->dataNascimento,
                     "CPF"               => $row->CPF,
@@ -59,6 +95,7 @@
                     "Endereco"          => $row->Endereco,
                     "Cidade"            => $row->Cidade,
                     "Estado"            => $row->Estado,
+                    "Bairro"            => $row->Bairro,
                     "NumeroCasa"        => $row->NumeroCasa
                 ];
             }
@@ -69,38 +106,48 @@
         public function insertMotoristaDB($dados){
             $db = db_connect();
 
-            $insert = $db->table('motoristas')->insert([
-
-                "tipoUsuario"       => "MOTORISTA",
-                "Foto"              => $db->escapeString(strval($dados["foto"])),
-                "Nome"              => $db->escapeString(strval($dados["nome"])),
+            //Create Motorista
+            $motorista = [
+                "Nome"              => $db->escapeString($dados["nome"]),
                 "dataNascimento"    => $db->escapeString($dados["datanascimento"]),
-                "CPF"               => $db->escapeString(intval($dados["cpf"])),
-                "CNHCategoria"      => $db->escapeString($dados["cnhcategoria"]),
+                "CPF"               => $db->escape(intval($dados["cpf"]), false),
                 "CNHLocal"          => $db->escapeString($dados["cnhlocal"]),
+                "CNHCategoria"      => $db->escapeString($dados["cnhcategoria"]),
                 "CNHNumeroRegistro" => $db->escapeString($dados["cnhregistro"]),
                 "Telefone"          => $db->escapeString($dados["telefone"]),
                 "CEP"               => $db->escapeString($dados["cep"]),
                 "Endereco"          => $db->escapeString($dados["endereco"]),
                 "Cidade"            => $db->escapeString($dados["cidade"]),
                 "Estado"            => $db->escapeString($dados["estado"]),
+                "Bairro"            => $db->escapeString($dados["bairro"]),
                 "NumeroCasa"        => $db->escapeString($dados["numerocasa"]),
                 "Complemento"       => $db->escapeString($dados["complemento"]),
                 "Disponibilidade"   => 1,
-                "dataCriacao"       => date("Y-m-d H:i:s"),
-                "dataModificacao"   => date("Y-m-d H:i:s")
+                "dataCriacao"       => date("Y-m-d H:i:s")
+            ];   
 
-            ]);
+            if($dados['foto'] != ""){
+                $motorista["Foto"]  = $db->escapeString($dados["foto"]);
+            }  
+            $insert = $db->table('motoristas')->insert($motorista);
 
-            return $this->returnResponse( $insert, 200 );
+            //Create Login
+            $login = [
+                "tipoUsuario"   => "MOTORISTA",
+                "CPF"           => $db->escape(intval($dados["cpf"]), false),
+                "Email"         => $db->escapeString($dados["email"]),
+                "Senha"         => $db->escapeString($dados["senha"]),
+                "dataCriacao"   => date("Y-m-d H:i:s")
+            ];
+            $insert = $db->table('logins')->insert($login);
+
+            return $this->returnResponse($insert, 200 );
         }
 
         public function updateMotoristaDB($dados){
             $db = db_connect();
 
             $update = $db->table('motoristas')->set([
-
-                "Foto"              => $db->escapeString($dados["foto"]),
                 "Nome"              => $db->escapeString($dados["nome"]),
                 "dataNascimento"    => $db->escapeString($dados["datanascimento"]),
                 "CPF"               => $db->escape(intval($dados["cpf"]), false),
@@ -112,12 +159,21 @@
                 "Endereco"          => $db->escapeString($dados["endereco"]),
                 "Cidade"            => $db->escapeString($dados["cidade"]),
                 "Estado"            => $db->escapeString($dados["estado"]),
+                "Bairro"            => $db->escapeString($dados["bairro"]),
                 "NumeroCasa"        => $db->escapeString($dados["numerocasa"]),
                 "Complemento"       => $db->escapeString($dados["complemento"]),
                 "Disponibilidade"   => 1,
                 "dataModificacao"   => date("Y-m-d H:i:s")
 
-            ], false)->where('MotoristaID', $db->escape( intval($dados["motoristaid"])) )->update();
+            ], false);
+
+            if($dados['foto'] != ""){
+                $update->set([
+                    "Foto"  => $db->escapeString($dados["foto"])
+                ]); 
+            }           
+
+            $update->where('MotoristaID', $db->escape( intval($dados["motoristaid"])) )->update();
 
             return $this->returnResponse( $update, $dados );
         }

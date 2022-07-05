@@ -85,28 +85,16 @@
             return $this->returnResponse( $select, $query );
         }
 
-        public function confirmSolicitacaoDB($solicitacao){
+        public function confirmFreteDB($frete){
             $db = db_connect();
 
             $update = $db->table('fretes')
-            ->where(array("FreteID" => $solicitacao['freteID']))
+            ->where(array("FreteID" => $frete['freteID']))
             ->update([
-                "SituacaoFreteID"   => $db->escapeString(strval($solicitacao["situacaoFreteID"]))
+                "SituacaoFreteID"   => $db->escapeString(strval($frete["situacaoFreteID"]))
             ]);
 
-            return $this->returnResponse( $update, 200 );
-        }
-
-        public function confirmPagamentoDB($pagamento){
-            $db = db_connect();
-
-            $update = $db->table('fretes')
-            ->where(array("FreteID" => $pagamento['freteID']))
-            ->update([
-                "SituacaoFreteID"   => $db->escapeString(strval($pagamento["situacaoFreteID"]))
-            ]);
-
-            return $this->returnResponse( $update, 200 );
+            return $this->returnResponse( $update, $update );
         }
     }
 

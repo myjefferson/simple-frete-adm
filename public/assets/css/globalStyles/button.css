@@ -16,9 +16,9 @@ button.btnDf-blue:hover{
 
 button.btnDf-white{
     padding: 8px 13px 8px 13px;
-    background: #FFF;
+    background: var(--global-color-button);
     box-shadow: var(--global-box-shadow);
-    color: var(--global-blue);
+    color: var(--global-color-blue);
 }
 
 button.btnDf-radius{
@@ -37,7 +37,7 @@ button.btnDf-radius:hover{
     margin: 0;
     border: none;
     padding: 2px 12px 8px 12px;
-    background: #FFF;
+    background: var(--global-color-button);
     box-shadow: var(--global-box-shadow);
-    color: var(--global-blue);
+    color: var(--global-text-color);
 }

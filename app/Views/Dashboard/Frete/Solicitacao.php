@@ -24,7 +24,7 @@
                 >
                     <div class="card"  v-on:click="selectFrete(frete.FreteID)" class="frete-card">
                         <div class="card-header">
-                            <ul>
+                            <ul class="status">
                                 <li><p class="descricao-frete info-solicitacao">{{frete.DescricaoFrete}}</p></li>
                                 <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
                                 <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>
@@ -44,9 +44,20 @@
                             <h5><b>{{ frete.valorTotal }}</b></h5>    
                             
                         </div>
-                        <div class="card-footer">
-                            <label>Solicitante</label>
-                            <p><b>William Gomes</b></p>
+                        <div class="card-footer row">
+                            <div class="col-8">
+                                <label>Solicitante</label>
+                                <p><b>William Gomes</b></p>
+                            </div>
+                            <!-- <div class="button-action btn-group col-4 no-padding">
+                                <button type="button" class="btnDf btnDf-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" @click="confirmarContrato(frete.FreteID)">Editar frete</a></li>
+                                    <li><a class="dropdown-item" href="#"> </a></li>
+                                </ul>
+                            </div> -->
                         </div>
                     </div> 
                 </div>                
@@ -56,7 +67,7 @@
         <div class="col-3 more-details">
             <div class="card">
                 <div class="card-header">
-                    <ul>
+                    <ul class="status">
                         <li><p class="frete-id">Código do frete: #{{ selected.FreteID }}</p></li>
                         <li><p class="data-criacao">{{ selected.dataCriacao }}</p></li>
                     </ul>
@@ -79,7 +90,23 @@
 
                     <label>Valor calculado</label>
                     <p><b>{{ selected.valorTotal }}</b></p>   
-                    
+
+                    <hr/>
+
+                    <label>Selecionar motorista</label>
+                    <select>
+                        <option selected>Selecione...</option>
+                    </select>
+
+                    <label>Tipo de carga</label>
+                    <select>
+                        <option selected>Selecione...</option>
+                    </select>
+
+                    <label>Selecionar veículo</label>
+                    <select>
+                        <option selected>Selecione...</option>
+                    </select>
                 </div>
                 <div class="card-footer">
                     <label>Solicitante</label>

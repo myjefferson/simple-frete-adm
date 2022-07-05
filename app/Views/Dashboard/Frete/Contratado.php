@@ -24,7 +24,7 @@
                 >
                     <div class="card">
                         <div class="card-header">
-                            <ul>
+                            <ul class="status">
                                 <li><p class="descricao-frete info-contratado">{{frete.DescricaoFrete}}</p></li>
                                 <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
                                 <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>
@@ -44,9 +44,21 @@
                             <h5><b>{{ frete.valorTotal }}</b></h5>    
                             
                         </div>
-                        <div class="card-footer">
-                            <label>Solicitante</label>
-                            <p><b>William Gomes</b></p>
+                        
+                        <div class="card-footer row">
+                            <div class="col-8">
+                                <label>Solicitante</label>
+                                <p><b>William Gomes</b></p>
+                            </div>
+                            <div class="button-action btn-group col-4 no-padding">
+                                <button type="button" class="btnDf btnDf-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" @click="confirmarContrato(frete.FreteID)">Confirmar contrato</a></li>
+                                    <li><a class="dropdown-item" href="#">Adiar </a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>  
                 </div>

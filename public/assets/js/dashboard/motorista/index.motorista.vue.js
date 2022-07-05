@@ -1,5 +1,5 @@
 new Vue({
-    el: '#page-motoristas',
+    el: '#page-motorista',
     data: {
             loading: true,
             errored: false,
@@ -11,7 +11,6 @@ new Vue({
             url: '/action/motorista/all-motoristas'
         })
         .then(res => {
-            //console.log(this.motoristas);
             this.motoristas = res.data
         })
         .catch(error => {

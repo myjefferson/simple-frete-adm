@@ -24,7 +24,7 @@
                 >
                     <div class="card"  v-on:click="selectFrete(frete.FreteID)" class="frete-card">
                         <div class="card-header">
-                            <ul>
+                            <ul class="status">
                                 <li><p class="descricao-frete info-andamento">{{frete.DescricaoFrete}}</p></li>
                                 <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
                                 <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>
@@ -56,7 +56,7 @@
         <div class="col-3 more-details">
             <div class="card">
                 <div class="card-header">
-                    <ul>
+                    <ul class="status">
                         <li><p class="frete-id">Código do frete: #{{ selected.FreteID }}</p></li>
                         <li><p class="data-criacao">{{ selected.dataCriacao }}</p></li>
                     </ul>
@@ -90,7 +90,7 @@
                     <a href="" target="_blank">
                         <span class="iconify" data-icon="logos:whatsapp"></span>
                     </a>
-                    <button class="btnDf btnDf-blue btnDf-radius" v-on:click="confirmarSolicitacao(selected.FreteID)">Confirmar solicitação</button>
+                    <button class="btnDf btnDf-blue btnDf-radius" v-on:click="finalizarFrete(selected.FreteID)">Finalizar frete</button>
                 </div>
             </div>
         </div>

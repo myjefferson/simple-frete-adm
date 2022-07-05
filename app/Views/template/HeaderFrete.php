@@ -16,8 +16,21 @@
                         <li><a href="/dashboard/frete/em-andamento" class="andamento">Em andamento</a></li>
                         <li><a href="/dashboard/frete/finalizado" class="finalizado">Fretes finalizados</a></li>
                     </ul>
-                    
                 </li>
+                <!-- <li>
+                    <ul class="sub-menu">
+                        <li>
+                            <div class="dropdown">
+                                <button class="btnDf-white dropdown-toggle" style="box-shadow: none; padding: 0; border: none;" type="button" id="dropdownOpcoes" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Opções
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownOpcoes">
+                                    <li><a class="dropdown-item" href="/dashboard/motorista/cadastro">{{ options.titleCriar }}</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
                 <li>
                     <div class="dropdown notifications">
                         <button class="btn" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">

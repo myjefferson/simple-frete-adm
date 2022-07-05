@@ -3,7 +3,7 @@
     $jsPage;
 ?>
 
-<div id="page-veiculos">
+<div id="page-config">
 
     <?= $viewHeaderConfig ?>
 
@@ -40,13 +40,13 @@
 
         <section id="aparencia">
             <h3><b>Aparência</b></h3>
-            <input type="radio" id="white-mode" value="white-mode" v-model="picked" />
+            <input type="radio" @click="updateAparencia('white-mode')" id="white-mode" value="white-mode" v-model="picked" />
             <label for="white-mode">
                 <span class="iconify" data-icon="ri:sun-fill"></span> 
                 Modo claro
             </label>
 
-            <input type="radio" id="dark-mode" value="dark-mode" v-model="picked" />
+            <input type="radio" @click="updateAparencia('dark-mode')" id="dark-mode" value="dark-mode" v-model="picked" />
             <label for="dark-mode">
                 <span class="iconify" data-icon="ooui:moon" data-flip="horizontal"></span>
                 Modo escuro

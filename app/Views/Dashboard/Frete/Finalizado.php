@@ -25,7 +25,7 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <ul>
+                            <ul class="status">
                                 <li><p class="descricao-frete info-finalizado">{{frete.DescricaoFrete}}</p></li>
                                 <li><p class="frete-id">#{{ frete.FreteID }}</p></li>
                                 <li><p class="data-criacao">{{ frete.dataCriacao }}</p></li>

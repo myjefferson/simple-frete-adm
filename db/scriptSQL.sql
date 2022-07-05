@@ -54,13 +54,15 @@ create table `Motoristas`(
     CEP varchar (20),
     Endereco varchar (30),
     Cidade varchar (20),
-    Estado varchar (20),
+    Estado varchar (2),
+    Bairro varchar(20),
     NumeroCasa varchar (15),
     Complemento varchar (30),
     Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
-); 
+);
+
 select * from Motoristas;
 
 create table `Veiculos`(
@@ -113,8 +115,8 @@ create table `TipoCargas`(
 select * from TipoCargas;
 
 create table `Logins`(
-	RecuperacaoID int (30) primary key auto_increment,
-    tipoUsuario varchar (20) not null, /*ADM, MOT, FUN*/
+	LoginID int (30) primary key auto_increment,
+    tipoUsuario varchar (20) not null, /*ADMINISTRADOR, MOTORISTA, FUNCIONARIO*/
     CPF int (15),
 	Email varchar(30) not null,
     Senha varchar (13) not null,
@@ -123,6 +125,20 @@ create table `Logins`(
     dataModificacao datetime not null
 );
 select * from Logins where Email = 'jcsjeffrey@gmail.com' and Senha = '78951020';
+
+create table `Configuracoes`(
+	ConfigID int (30) primary key auto_increment,
+    UserID int (30) not null,
+	tipoUsuario varchar (20) not null, /*ADMINISTRADOR, MOTORISTA, FUNCIONARIO*/
+    lightMode varchar (15) not null default 'white-mode'
+);
+select * from configuracoes;
+select * from administradores;
+
+select * from login log
+join configuracoes config 
+on 'ADMINISTRADOR' = config.tipoUsuario
+and adm.AdministradorID = config.UserID;
 
 update Logins set 
 	Email = 'jcsjeffrey@gmail.com',

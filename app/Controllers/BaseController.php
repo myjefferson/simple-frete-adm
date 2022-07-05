@@ -54,7 +54,7 @@ class BaseController extends Controller
 		$data['cssBootstrap'] = "<link rel='stylesheet' href=".base_url("assets/css/bootstrap/5.1.3/bootstrap.min.css").">";
 		$data['iconify'] = "<script src=".base_url("https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js")."></script>";
 		$data['dashboardStyle'] = "<link rel='stylesheet' href=".base_url("assets/css/dashboard/dashboard.css").">";
-		$data['globalStyles'] = "<link rel='stylesheet' href=".base_url("assets/css/globalStyles/input.css").">
+		$data['globalStyles'] = "<link rel='stylesheet' href=".base_url("assets/css/globalStyles/form.css").">
 								 <link rel='stylesheet' href=".base_url("assets/css/globalStyles/menu.css").">
 								 <link rel='stylesheet' href=".base_url("assets/css/globalStyles/button.css").">
 								 <link rel='stylesheet' href=".base_url("assets/css/globalStyles/root.css").">";

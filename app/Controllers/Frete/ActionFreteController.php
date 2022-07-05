@@ -7,11 +7,9 @@
     class ActionFreteController extends BaseController{
 
         public function selectAllAction(){
-            //if($this->request->isAJAX()){
-                $accessDB = new FreteModel();
-                $situacaoFreteID = (int) $this->request->getGet('situacaoFreteID');
-                echo json_encode($accessDB->selectAllFretesDB($situacaoFreteID));
-            //}
+            $accessDB = new FreteModel();
+            $situacaoFreteID = (int) $this->request->getGet('situacaoFreteID');
+            echo json_encode($accessDB->selectAllFretesDB($situacaoFreteID));
         }
 
         public function selectOneAction($FreteID = null){
@@ -56,8 +54,6 @@
             if($this->request->getPost('action') == 'confirmSolicitacao'){
                 $dados['freteID']           = $this->request->getPost('freteID');
                 $dados['situacaoFreteID']   = $this->request->getPost('situacaoFreteID');
-                //$dados['motoristaid']              = $this->request->getPost('motoristaid');
-                //$dados["datanascimento"]    = $this->request->getPost('caminhaoid');
 
                 echo json_encode($accessDB->confirmSolicitacaoDB($dados));
             }
@@ -69,26 +65,34 @@
             if($this->request->getPost('action') == 'confirmPagamento'){
                 $dados['freteID']           = $this->request->getPost('freteID');
                 $dados['situacaoFreteID']   = $this->request->getPost('situacaoFreteID');
-                //$dados['motoristaid']              = $this->request->getPost('motoristaid');
-                //$dados["datanascimento"]    = $this->request->getPost('caminhaoid');
 
                 echo json_encode($accessDB->confirmPagamentoDB($dados));
             }
         }
 
-        public function deleteAction($MotoristaID = null){
-            $accessDB = new MotoristaModel();
+        public function confirmFreteAction(){
+            $accessDB = new FreteModel();
 
-            if($this->request->getPost('action') == 'delete'){
-                $query = $accessDB->deleteOneMotoristaDB($MotoristaID);
-        
-                if($query == "200"){
-                    echo json_encode(["status" => $query]);
-                }else{
-                    echo json_encode(["status" => 304]);
-                }
+            if($this->request->getPost('action') == 'confirmFrete'){
+                $frete['freteID']           = $this->request->getPost('freteID');
+                $frete['situacaoFreteID']   = $this->request->getPost('situacaoFreteID');
+                echo json_encode($accessDB->confirmFreteDB($frete));
             }
         }
+
+        // public function deleteAction($MotoristaID = null){
+        //     $accessDB = new MotoristaModel();
+
+        //     if($this->request->getPost('action') == 'delete'){
+        //         $query = $accessDB->deleteOneMotoristaDB($MotoristaID);
+        
+        //         if($query == "200"){
+        //             echo json_encode(["status" => $query]);
+        //         }else{
+        //             echo json_encode(["status" => 304]);
+        //         }
+        //     }
+        // }
 
     }
 

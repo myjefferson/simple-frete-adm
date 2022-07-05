@@ -1,3 +1,16 @@
+* body, * html, * main{
+  background-color: var(--global-primary);
+}
+
+* div{
+  transition: 0.3s;
+}
+
+.no-padding{
+  padding: 0 !important;
+  margin: 0;
+}
+
 .line-style{
   position: fixed;
   z-index: 1;
@@ -14,10 +27,13 @@
   position: fixed;
   left: 0;
   padding: 0px 15px 10px 10px;
+  transition: 0.3s;
 }
 
 .lateral-nav{
   height: 100vh;
+  background: var(--global-primary);
+  transition: 0.3s;
 }
 
 .lateral-nav img.brand{
@@ -42,7 +58,7 @@
   display: block;
   text-decoration: none;
   font-size: 1.25em;
-  color: var(--bs-gray-dark);
+  color: var(--global-text-color);
   border-radius: var(--global-border-buttons);
   width: 100%;
   padding: 6px 13px 4px 10px;
@@ -50,7 +66,7 @@
 
 .lateral-nav li a:hover,
 .lateral-nav li a.active{
-  background: var(--global-blue);
+  background: var(--global-hover-blue);
   color: #FFF;
 }
 
@@ -63,5 +79,5 @@
 .content-page{
   box-shadow: 4px 0px 5px rgba(0,0,0,0.048) inset;
   padding: 25px !important;
-  background: var(--global-soft-blue);
+  background: var(--global-secondary);
 }

@@ -76,12 +76,13 @@
                                     <th scope="col">Data da Solicitação</th>
                                 </tr>
                             </thead>
-                            <tbody
-                                v-for="frete in fretes"
-                                class="frete"
-                            >
-                                <tr>
-                                    <th scope="row">1</th>
+                            <tbody>
+                                <tr
+                                    v-for="frete in solicitaFretes"
+                                    class="frete"
+                                    onclick="location.href = '/dashboard/frete/solicitacao'"
+                                >
+                                    <th scope="row">{{ frete.FreteID }}</th>
                                     <td>{{ frete.enderecoOrigem }}</td>
                                     <td>{{ frete.enderecoOrigem }}</td>
                                     <td>{{ frete.enderecoOrigem }}</td>
@@ -93,7 +94,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h5>Viagens para concluir</h5>
+                <h5>Viagens em andamento</h5>
                 <div class="card viagens-concluir">
                 
                     <div v-if="errored">
@@ -110,12 +111,13 @@
                                     <th scope="col">Data da Solicitação</th>
                                 </tr>
                             </thead>
-                            <tbody
-                                v-for="frete in fretes"
+                            <tbody>
+                            <tr
+                                v-for="frete in concluirFretes"
                                 class="frete"
+                                onclick="location.href = '/dashboard/frete/em-andamento'"
                             >
-                                <tr>
-                                    <th scope="row">1</th>
+                                <th scope="row">{{ frete.FreteID }}</th>
                                     <td>{{ frete.enderecoOrigem }}</td>
                                     <td>{{ frete.enderecoOrigem }}</td>
                                     <td>{{ frete.enderecoOrigem }}</td>
