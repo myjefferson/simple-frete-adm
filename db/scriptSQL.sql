@@ -86,19 +86,25 @@ create table `Veiculos`(
 select * from Veiculos;
 
 create table `Fretes`(
-	FreteID int (30) primary key auto_increment,
-	VeiculoID int (30),
+    FreteID int (30) primary key auto_increment,
+    VeiculoID int (30),
     MotoristaID int (30),
     ClienteID int (30),
     TipoCargaID int (30),
     SituacaoFreteID int(10),
+    NomeDestinatario varchar(40),
+    DocumentoDestinatario varchar(40),
     enderecoOrigem varchar(40),
     enderecoDestino varchar (40),
+    descricaoMercadoria varchar (40),
+    pesoMercadoria double,
+    quantidadeMercadoria int(12),
+    valorNotaFiscalMercadoria varchar(40),
     tempoEntrega date,
-	valorDistancia double,
+    valorDistancia double,
     valorServicos double,
     Pago tinyint(1),
-    Descricao text,
+    descricaoAdicional text,
     Disponibilidade tinyint (1), /* 1 = Ativo | 0 = Inativo */
     dataCriacao datetime not null,
     dataModificacao datetime not null
