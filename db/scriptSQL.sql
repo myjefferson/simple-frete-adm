@@ -16,6 +16,18 @@ create table `Administradores`(
     dataModificacao datetime not null
 );
 
+/*Criação da tabela clientes*/
+create table `Clientes`(
+    ClienteID int (30) primary key auto_increment,
+    Foto text,
+    Nome varchar (30) not null,
+    CPF int (15) not null,
+    dataNascimento date,
+    Disponibilidade varchar (1),
+    dataCriacao datetime not null,
+    dataModificacao datetime not null
+);
+
 select * from Administradores;
 update Administradores set CPF = '2147483647' where AdministradorID = 6;
 
