@@ -42,7 +42,7 @@
                     $ext = strtolower(substr($_FILES['foto']['name'],-4));
                     $new_name = 'motorista-'.date("Y.m.d-H.i.s") . $ext;
                     $dados["foto"] = $new_name;
-                    $dir = './upload/';
+                    $dir = './upload/motoristas/';
                     move_uploaded_file($_FILES['foto']['tmp_name'], $dir.$new_name);
                 }
 
@@ -78,7 +78,7 @@
                     $ext = strtolower(substr($_FILES['foto']['name'],-4));
                     $new_name = 'motorista-'.date("Y.m.d-H.i.s") . $ext;
                     $dados["foto"] = $new_name;
-                    $dir = './upload/';
+                    $dir = './upload/motoristas/';
                     move_uploaded_file($_FILES['foto']['tmp_name'], $dir.$new_name);
                 }
 

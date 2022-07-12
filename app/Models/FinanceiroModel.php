@@ -79,6 +79,16 @@
 
             return $this->returnResponse( $select, $query );
         }
+
+        public function deleteOneVeiculoDB($VeiculoID){
+            $db = db_connect();
+
+            $insert = $db->table('veiculos')->delete(
+                ['VeiculoID' => $VeiculoID
+            ]);
+
+            return $this->returnResponse( $insert, 200 );
+        }
     }
 
 ?>

@@ -11,7 +11,7 @@ new Vue({
             url: '/action/veiculo/all-veiculos'
         })
         .then(res => {
-            this.veiculos = res.data.status
+            this.veiculos = res.data
         })
         .catch(error => {
             this.errored = true

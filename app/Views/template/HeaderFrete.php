@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li> -->
-                <li>
+                <!-- <li>
                     <div class="dropdown notifications">
                         <button class="btn" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="iconify" data-icon="mi:notification"></span>
@@ -42,7 +42,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
             </ul>
             
         </div>

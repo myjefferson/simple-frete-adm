@@ -65,7 +65,8 @@ new Vue({
                     config: { headers: this.contentType }
 
                 }).then(function(res){
-                    //window.location.href = "/dashboard/motorista"
+                    alert("Motorista cadastrado com sucesso!");
+                    window.location.href = "/dashboard/motorista"
 
                 }).catch(function(res){
                     console.log("Opa! Não deu certo.")

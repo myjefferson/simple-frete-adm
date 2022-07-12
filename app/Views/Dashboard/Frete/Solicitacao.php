@@ -8,19 +8,20 @@
     <?=$viewHeaderFrete;?>
         
     <div class="row">
-        <div class="col-3">
+        <div class="col-3" style="width: 50%;" id="list-fretes">
             <div v-if="errored"> 
                 Nada encontrado 
             </div>
             
-            <div v-else id="content-solicitacao">
+            <div v-else id="content-solicitacao" class="row">
                 <div v-if="loading">
                     <img src="<?=base_url('assets/images/loading.gif')?>">
                 </div>
                 
                 <div v-else
                     v-for="frete in fretes"
-                    class="list-fretes"
+                    class="list-fretes col-12 col-sm-6"
+                    id="frete"
                 >
                     <div class="card"  v-on:click="selectFrete(frete.FreteID)" class="frete-card">
                         <div class="card-header">
@@ -64,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-3 more-details">
+        <div class="col-3 more-details" id="more-details" style="width: 0;">
             <div class="card">
                 <div class="card-header">
                     <ul class="status">
@@ -94,18 +95,24 @@
                     <hr/>
 
                     <label>Selecionar motorista</label>
-                    <select>
+                    <select class="select-motoristas">
                         <option selected>Selecione...</option>
+                        <option 
+                            v-for="motorista in motoristas"
+                            v-if="motorista.SituacaoFreteID == undefined"
+                        >{{ motorista.Nome }}</option>
                     </select>
 
                     <label>Tipo de carga</label>
-                    <select>
+                    <select class="select-cargas">
                         <option selected>Selecione...</option>
+                        <option v-for="carga in cargas" value="">{{ carga.DescricaoCarga }}</option>
                     </select>
 
                     <label>Selecionar veículo</label>
-                    <select>
+                    <select class="select-veiculos">
                         <option selected>Selecione...</option>
+                        <option v-for="veiculo in veiculos">{{ veiculo.VeiculoID }} - {{ veiculo.Marca }} | {{ veiculo.Modelo }}</option>
                     </select>
                 </div>
                 <div class="card-footer">

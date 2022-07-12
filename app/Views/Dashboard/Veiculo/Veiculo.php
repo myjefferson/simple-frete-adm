@@ -5,7 +5,6 @@
 
 <div id="page-veiculos">
     
-    
     <?=$viewHeaderVeiculo?>
 
     <div id="vue-veiculos">        
@@ -26,7 +25,7 @@
                 
                     <li 
                         v-for="veiculo in veiculos"
-                        class="col-sm-12 col-md-6 col-lg-4 col-xl-4 no-padding"
+                        class="col-sm-12 col-md-6 col-lg-4 col-xl-4"
                     >
                         <div class="card">
                             <div class="row">
@@ -36,7 +35,7 @@
                                 </div>
                                 <div class="col-sm-6 col-md-5">
                                     <div class="button">  
-                                        <a :href="'/dashboard/veiculos/detalhes-veiculo/' +  veiculo.VeiculoID">Ver mais</a>
+                                        <a :href="'/dashboard/veiculo/detalhe-veiculo/' +  veiculo.VeiculoID">Ver mais</a>
                                     </div>
                                     <label class="soft-text-info">Status</label>
                                     <p class="color-status"><b>Em manutenção</b></p>

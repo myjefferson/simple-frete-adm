@@ -8,7 +8,12 @@ new Vue({
                 'titleCriar': 'Crar solicitação',
                 'linkCriar': 'link/criar'
             },
+
             fretes: [],
+            motoristas: [],
+            cargas: [],
+            veiculos: [],
+
             selected: [],
 
             FreteID: "",
@@ -24,6 +29,11 @@ new Vue({
             this.selected = findSelected
 
             onChangeHandler(this.selected.enderecoOrigem, this.selected.enderecoDestino)
+            document.getElementById("more-details").style.width = "25%"
+            document.getElementById("list-fretes").style.width = "25%"
+            
+            var element = document.querySelectorAll(".list-fretes")
+            element.forEach(h => h.classList.remove("col-sm-6"))
         },
 
         confirmarSolicitacao(freteID){
@@ -52,12 +62,61 @@ new Vue({
         }
     },
     mounted() {
+        //Fretes
         axios({
             method: 'get',
             url: '/action/frete/all-fretes?situacaoFreteID=1'
         })
         .then(res => {
             this.fretes = res.data
+        })
+        .catch(error => {
+            this.errored = true
+        })
+        .finally(() => {
+            this.loading = false
+        })
+
+        //Motoristas Disponíveis
+        axios({
+            method: 'get',
+            url: '/action/motorista/all-motoristas'
+        })
+        .then(res => {
+            this.motoristas = res.data
+            console.log(res.data)
+        })
+        .catch(error => {
+            this.errored = true
+        })
+        .finally(() => {
+            this.loading = false
+        })
+
+        //Tipo cargas
+        axios({
+            method: 'get',
+            url: '/action/frete/tipo-cargas'
+        })
+        .then(res => {
+            this.cargas = res.data
+            console.log(res.data)
+        })
+        .catch(error => {
+            this.errored = true
+        })
+        .finally(() => {
+            this.loading = false
+        })
+
+        //Veiculos
+        axios({
+            method: 'get',
+            url: '/action/veiculo/all-veiculos'
+        })
+        .then(res => {
+            this.veiculos = res.data
+            console.log(res.data)
         })
         .catch(error => {
             this.errored = true

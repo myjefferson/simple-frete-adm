@@ -62,8 +62,11 @@ create table `Motoristas`(
     dataCriacao datetime not null,
     dataModificacao datetime not null
 );
-
 select * from Motoristas;
+select * from Fretes;
+
+select * from Motoristas mo;
+	left join fretes fe on fe.MotoristaID = mo.MotoristaID;
 
 create table `Veiculos`(
 	VeiculoID int (30) primary key auto_increment,
@@ -146,10 +149,6 @@ update Logins set
     CPF = '60736673377',
     tipoUsuario = 'ADMINISTRADOR'
 where CPF = '60736673377';
-
-select * from motoristas mo 
-	join fretes fe on fe.MotoristaID = mo.MotoristaID
-where mo.MotoristaID = 1
 
 /*drop de tabelas*/
 /*

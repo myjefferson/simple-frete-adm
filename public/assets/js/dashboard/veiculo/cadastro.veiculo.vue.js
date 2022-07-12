@@ -28,13 +28,13 @@ new Vue({
 
                 axios({
                     method: 'post',
-                    url: '/action/veiculos/cadastrar',
+                    url: '/action/veiculo/cadastrar',
                     data: formData,
                     config: { headers: {'Content-Type': 'multipart/form-data'} }
 
                 }).then(function(res){
-                    alert(res.data.status);
-                    setTimeout(window.location.href = "/dashboard/veiculos", 0)
+                    alert("Veículo cadastrado com sucesso!");
+                    window.location.href = "/dashboard/veiculo";
 
                 }).catch(function(res){
                     console.log("Opa! Não deu certo.")

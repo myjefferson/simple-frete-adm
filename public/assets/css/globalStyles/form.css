@@ -13,7 +13,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"]{
     background: var(--global-input-color) !important;
-    color: var(--global-text-color);
+    color: var(--global-text-color) !important;
 }
 
 input[type="password"]::placeholder{
@@ -22,6 +22,10 @@ input[type="password"]::placeholder{
 
 .form-control{
     margin: 0 0 15px 0;
+}
+
+.form-group label, .form-group h3{
+    color: var(--global-text-color);
 }
 
 .form-group .button-foto{

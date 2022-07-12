@@ -11,7 +11,7 @@
                         <input type="text" class="search" placeholder="Busque por nome">
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <div class="dropdown notifications">
                         <button class="btnDf on-button-white" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="iconify" data-icon="mi:notification"></span>
@@ -22,7 +22,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

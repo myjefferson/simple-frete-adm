@@ -108,9 +108,9 @@
             </div>
         </div>
 
-        <h3><b>Criação de conta</b></h3>
-
+        
         <div class="form-group row">
+            <h3><b>Criação de conta</b></h3>
             <div class="col-md-6">
                 <label class="form-label" for="exampleCheck1">E-mail</label>
                 <input type="text" class="form-control" id="inputEmail" v-model="inputEmail">

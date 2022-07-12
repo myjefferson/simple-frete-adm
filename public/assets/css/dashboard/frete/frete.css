@@ -8,12 +8,12 @@
 
 **/
 /*MENU*/
-.menu-frete ul.status li a{
+.menu-frete ul li a{
     position: relative;    
 }
 
-.menu-frete ul.status li a:hover:after,
-.menu-frete ul.status li a.active:after{
+.menu-frete ul li a:hover:after,
+.menu-frete ul li a.active:after{
     display: block;
     content: "";
     width: 100%;
@@ -23,28 +23,28 @@
     border-radius: 100px;
 }
 
-.menu-frete ul.status li a.active{
+.menu-frete ul li a.active{
     font-weight: bold;
     color: var(--global-black);
 }
 
-.menu-frete ul.status li a.solicitacao:after{
+.menu-frete ul li a.solicitacao:after{
     background: #FFA800;
 }
 
-.menu-frete ul.status li a.pagamento:after{
+.menu-frete ul li a.pagamento:after{
     background: #ED4700;
 }
 
-.menu-frete ul.status li a.contratado:after{
+.menu-frete ul li a.contratado:after{
     background: #006BAD;
 }
 
-.menu-frete ul.status li a.andamento:after{
+.menu-frete ul li a.andamento:after{
     background: #00C2FF;
 }
 
-.menu-frete ul.status li a.finalizado:after{
+.menu-frete ul li a.finalizado:after{
     background: #189F00;
 }
 
@@ -225,6 +225,10 @@ ul.status{
     font-family: "Roboto", "sans-serif";
     line-height: 30px;
     padding-left: 10px;
+}
+
+.map-area div{
+    transition: 0s !important;
 }
 
 .refreshMap{

@@ -9,12 +9,13 @@
             <ul class="menu">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="#informacoes-pessoais">Informações pessoais</a></li>
+                        <!-- <li><a href="#informacoes-pessoais">Informações pessoais</a></li>
                         <li><a href="#seguranca">Segurança</a></li>
-                        <li><a href="#preferencias">Preferências</a></li>
+                        <li><a href="#preferencias">Preferências</a></li> -->
                         <li><a href="#aparencia">Aparência</a></li>
                     </ul>
                 </li>
+                <!--
                 <li>
                     <div class="dropdown notifications">
                         <button class="btn" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,6 +28,7 @@
                         </ul>
                     </div>
                 </li>
+                -->
             </ul>
             
         </div>

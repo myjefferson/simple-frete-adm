@@ -2,7 +2,7 @@
   background-color: var(--global-primary);
 }
 
-* div{
+div{
   transition: 0.3s;
 }
 

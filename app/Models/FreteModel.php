@@ -35,8 +35,12 @@
             $table = $db->table('fretes')
             ->select('*')
             ->where(["situacoesfrete.SituacaofreteID" => $SituacaoFreteID])
-            ->join('situacoesfrete', 'situacoesfrete.SituacaofreteID = fretes.SituacaofreteID')
-            ->join('tipocargas', 'tipocargas.TipoCargaID = fretes.TipoCargaID');
+            ->join('situacoesfrete', 'situacoesfrete.SituacaofreteID = fretes.SituacaofreteID');
+
+            if($SituacaoFreteID != 1){
+                $table->join('tipocargas', 'tipocargas.TipoCargaID = fretes.TipoCargaID');
+            }
+
             $select = $table->get();
 
             foreach ($select->getResult() as $row) {
@@ -54,6 +58,22 @@
                     "DescricaoFrete"    => $row->DescricaoFrete,
                     "Disponibilidade"   => $row->Disponibilidade,
                 
+                ];
+            }
+
+            return $this->returnResponse( $select, $query );
+        }
+
+        public function selectAllCargasDB(/*int $TipoCargasID*/){
+            $db = db_connect();
+            
+            $table = $db->table('tipocargas')->select('*');
+            $select = $table->get();
+
+            foreach ($select->getResult() as $row) {
+                $query[] = [
+                    "TipoCargaID"       => $row->TipoCargaID,
+                    "DescricaoCarga"    => $row->DescricaoCarga
                 ];
             }
 

@@ -12,6 +12,11 @@
             echo json_encode($accessDB->selectAllFretesDB($situacaoFreteID));
         }
 
+        public function selectAllCargasAction(){
+            $accessDB = new FreteModel();
+            echo json_encode($accessDB->selectAllCargasDB());
+        }
+
         public function selectOneAction($FreteID = null){
             $accessDB = new FreteModel();
             echo json_encode(["status" => $accessDB->selectOneFreteDB($FreteID)]);

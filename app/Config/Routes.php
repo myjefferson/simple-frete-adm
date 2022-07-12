@@ -68,8 +68,10 @@ $routes->get('/dashboard/veiculo/detalhe-veiculo/(:num)',		'Veiculo\VeiculoContr
 
 //Veiculo - ActionDB
 $routes->get('/action/veiculo/all-veiculos', 					'Veiculo\ActionVeiculoController::selectAllAction');
-$routes->get('/action/veiculo/detalhes-veiculo/(:num)',			'Veiculo\ActionVeiculoController::selectOneAction/$1');
+$routes->get('/action/veiculo/detalhe-veiculo/(:num)',			'Veiculo\ActionVeiculoController::selectOneAction/$1');
 $routes->post('/action/veiculo/cadastrar', 						'Veiculo\ActionVeiculoController::insertVeiculo');
+$routes->post('/action/veiculo/alterar/(:num)', 				'Veiculo\ActionVeiculoController::updateAction/$1');
+$routes->post('/action/veiculo/excluir/(:num)', 				'Veiculo\ActionVeiculoController::deleteAction/$1');
 
 //--------------------------------------------------------------------
 
@@ -84,10 +86,13 @@ $routes->get('/dashboard/frete/cadastro', 				'Frete\FreteController::cadastroPa
 //Frete - ActionDB
 $routes->post('/action/frete/confirmFrete', 	'Frete\ActionFreteController::confirmFreteAction');
 $routes->get('/action/frete/all-fretes', 		'Frete\ActionFreteController::selectAllAction');
+$routes->get('/action/frete/tipo-cargas', 		'Frete\ActionFreteController::selectAllCargasAction');
+
+
 
 //pendentes - vvvvvv
-$routes->get('/action/frete/detalhes-frete/(:num)',			'Frete\ActionFreteController::selectOneAction/$1');
-$routes->post('/action/frete/cadastrar', 		'Frete\ActionFreteController::insertVeiculo');
+$routes->get('/action/frete/detalhe-frete/(:num)', 'Frete\ActionFreteController::selectOneAction/$1');
+$routes->post('/action/frete/cadastrar', 'Frete\ActionFreteController::insertVeiculo');
 
 //--------------------------------------------------------------------
 
@@ -100,7 +105,7 @@ $routes->get('/dashboard/financeiro', 'FinanceiroController::index');
 $routes->get('/dashboard/config', 'Config\ConfigController::index');
 
 //Configurações - ActionDB
-$routes->post('/action/config/update', 				'Config\ActionConfigController::updateAction');
+$routes->post('/action/config/update', 	'Config\ActionConfigController::updateAction');
 
 
 /*

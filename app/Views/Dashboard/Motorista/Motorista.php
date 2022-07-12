@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <label class="soft-text-info">Motorista</label>
-                                        <h4><label class="nome">{{ motorista.Nome }}</label> <label class="modelo">234</label></h4>
+                                        <h4><label class="nome">{{ motorista.Nome }}</label></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-8 separe">

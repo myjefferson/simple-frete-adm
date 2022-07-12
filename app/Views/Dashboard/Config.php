@@ -9,7 +9,7 @@
 
     <div id="vue-configuracoes">
 
-        <section id="informacoes-pessoais">
+        <!-- <section id="informacoes-pessoais">
             <h3><b>Informações pessoais</b></h3>
 
             <form>
@@ -31,7 +31,7 @@
                 <label for="exampleInputPassword1">Senha</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha" readonly>
             </div>
-        </section>
+        </section> -->
 
         <!-- <section id="preferencias">
             <h3><b>Preferências</b></h3>

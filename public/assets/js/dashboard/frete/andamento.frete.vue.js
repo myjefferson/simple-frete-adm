@@ -20,6 +20,11 @@ new Vue({
             this.selected = findSelected
 
             onChangeHandler(this.selected.enderecoOrigem, this.selected.enderecoDestino)
+            document.getElementById("more-details").style.width = "25%"
+            document.getElementById("list-fretes").style.width = "25%"
+            
+            var element = document.querySelectorAll(".list-fretes")
+            element.forEach(h => h.classList.remove("col-sm-6"))
         },
 
         finalizarFrete(freteID){

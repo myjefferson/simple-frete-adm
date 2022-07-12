@@ -8,7 +8,7 @@
     <?=$viewHeaderFrete;?>
         
     <div class="row">
-        <div class="col-3">
+        <div class="col-3" style="width: 50%;" id="list-fretes">
             <div v-if="errored"> 
                 Nada encontrado 
             </div>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="col-3 more-details">
+        <div class="col-3 more-details" id="more-details" style="width: 0;">
             <div class="card">
                 <div class="card-header">
                     <ul class="status">

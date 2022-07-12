@@ -24,14 +24,13 @@ new Vue({
 
             axios({
                 method: 'post',
-                url: `/action/veiculos/excluir/${this.VeiculoID}`,
+                url: `/action/veiculo/excluir/${this.VeiculoID}`,
                 data: formData,
                 config: { headers: this.contentType }
             })
             .then(res => {
                 console.log(res.data.status)
-                //console.log(this.veiculos);
-                window.location.href = "/dashboard/veiculos"
+                window.location.href = "/dashboard/veiculo"
             })
             .catch(error => {
                 this.errored = true
@@ -42,39 +41,29 @@ new Vue({
         },
 
         updateVeiculo: function (){
-
             let formData = new FormData();    
 
-            formData.append('action',           'update')   
-            formData.append('motoristaid',      this.MotoristaID)   
+            formData.append('action',       'update')   
+            formData.append('veiculoid',    this.VeiculoID)   
 
-            formData.append('foto',             this.inputFoto)
-            formData.append('nome',             this.inputNome)
-            formData.append('datanascimento',   this.inputDataNascimento)
-            formData.append('cpf',              this.inputCPF)
-            formData.append('cnhcategoria',     this.inputCNHCategoria)
-            formData.append('cnhlocal',         this.inputCNHLocal)
-            formData.append('cnhregistro',      this.inputCNHCategoria)
-            formData.append('telefone',         this.inputTelefone)
-            formData.append('cep',              this.inputCEP)
-            formData.append('endereco',         this.inputEndereco)
-            formData.append('cidade',           this.inputCidade)
-            formData.append('estado',           this.inputEstado)
-            formData.append('numerocasa',       this.inputNumeroCasa)
-            formData.append('complemento',      this.inputComplemento)
-            formData.append('email',            this.inputEmail)
-            formData.append('senha',            this.inputSenha)
+            formData.append('foto',         this.inputFoto)
+            formData.append('marca',        this.inputMarca)
+            formData.append('modelo',       this.inputModelo)
+            formData.append('cor',          this.inputCor)
+            formData.append('placa',        this.inputPlaca)
+            formData.append('localplaca',   this.inputLocalPlaca)
+            formData.append('chassi',       this.inputChassi)
+            formData.append('renavan',      this.inputRenavan)
 
             axios({
                 method: 'post',
-                url: `/action/motoristas/alterar/${ this.MotoristaID }`,
+                url: `/action/veiculo/alterar/${ this.VeiculoID }`,
                 data: formData,
                 config: { headers: this.contentType }
             })
             .then(res => {
-                console.log(res.data.status)
-                //console.log(this.motoristas);
-                //window.location.href = "/dashboard/motoristas"
+                console.log(res.data)
+                window.location.href = "/dashboard/veiculo"
             })
             .catch(error => {
                 this.errored = true
@@ -90,18 +79,18 @@ new Vue({
 
         axios({
             method: 'get',
-            url: `/action/veiculos/detalhes-veiculo/${this.VeiculoID}`
+            url: `/action/veiculo/detalhe-veiculo/${this.VeiculoID}`
         })
         .then(res => {
-
-            this.inputFoto          = res.data.status[0].Foto
-            this.inputMarca         = res.data.status[0].Marca
-            this.inputModelo        = res.data.status[0].Modelo
-            this.inputCor           = res.data.status[0].Cor
-            this.inputPlaca         = res.data.status[0].Placa
-            this.inputLocalPlaca    = res.data.status[0].localPlaca
-            this.inputChassi        = res.data.status[0].Chassi
-            this.inputRenavan       = res.data.status[0].Renavan
+            
+            this.inputFoto          = res.data[0].Foto
+            this.inputMarca         = res.data[0].Marca
+            this.inputModelo        = res.data[0].Modelo
+            this.inputCor           = res.data[0].Cor
+            this.inputPlaca         = res.data[0].Placa
+            this.inputLocalPlaca    = res.data[0].localPlaca
+            this.inputChassi        = res.data[0].Chassi
+            this.inputRenavan       = res.data[0].Renavan
         
         })
         .catch(error => {
