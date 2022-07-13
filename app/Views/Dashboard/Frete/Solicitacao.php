@@ -86,8 +86,11 @@
                     <label>Descrição Frete</label>
                     <p><b>{{ selected.DescricaoFrete }}</b></p> 
                     
-                    <label>Descrição Carga</label>
-                    <p><b>{{ selected.DescricaoCarga }}</b></p>    
+                    <label>Descrição Mercadoria</label>
+                    <p><b>{{ selected.DescricaoMercadoria }}</b></p>    
+                    
+                    <label>Descrição Adicional</label>
+                    <p><b>{{ selected.descricaoAdicional }}</b></p>    
 
                     <label>Valor calculado</label>
                     <p><b>{{ selected.valorTotal }}</b></p>   

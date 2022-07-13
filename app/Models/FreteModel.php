@@ -46,17 +46,19 @@
             foreach ($select->getResult() as $row) {
                 $query[] = [
 
-                    "FreteID"           => $row->FreteID,
-                    "VeiculoID"         => $row->VeiculoID,
-                    "MotoristaID"       => $row->MotoristaID,
-                    "ClienteID"         => $row->ClienteID,
-                    "TipoCargaID"       => $row->TipoCargaID,
-                    "enderecoOrigem"    => $row->enderecoOrigem,
-                    "enderecoDestino"   => $row->enderecoDestino,
-                    "valorTotal"        => $row->valorTotal,
-                    "DescricaoCarga"    => $row->DescricaoCarga,
-                    "DescricaoFrete"    => $row->DescricaoFrete,
-                    "Disponibilidade"   => $row->Disponibilidade,
+                    "FreteID"               => $row->FreteID,
+                    "VeiculoID"             => $row->VeiculoID,
+                    "MotoristaID"           => $row->MotoristaID,
+                    "ClienteID"             => $row->ClienteID,
+                    "TipoCargaID"           => $row->TipoCargaID,
+                    "enderecoOrigem"        => $row->enderecoOrigem,
+                    "enderecoDestino"       => $row->enderecoDestino,
+                    "valorTotal"            => $row->valorTotal,
+                    "DescricaoFrete"        => $row->DescricaoFrete,
+                    "DescricaoCarga"        => $row->DescricaoCarga,
+                    "DescricaoMercadoria"   => $row->DescricaoMercadoria,
+                    "descricaoAdicional"    => $row->descricaoAdicional,
+                    "Disponibilidade"       => $row->Disponibilidade,
                 
                 ];
             }

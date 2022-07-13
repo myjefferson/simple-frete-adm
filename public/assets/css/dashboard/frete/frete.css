@@ -49,6 +49,11 @@
 }
 
 /*1 - Cards Frete*/
+#more-details, .map-area{
+    overflow-y: scroll;
+    height: calc(100vh - 110px) !important;
+}
+
 #content-solicitacao,
 #content-andamento{
     overflow-y: scroll;
