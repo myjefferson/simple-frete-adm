@@ -98,24 +98,27 @@
                     <hr/>
 
                     <label>Selecionar motorista</label>
-                    <select class="select-motoristas">
-                        <option selected>Selecione...</option>
+                    <select class="select-motoristas" v-model="selectedMotorista">
+                        <option disabled value="">Selecione...</option>
                         <option 
                             v-for="motorista in motoristas"
-                            v-if="motorista.SituacaoFreteID == undefined"
-                        >{{ motorista.Nome }}</option>
+                            v-if="motorista.SituacaoFreteID === null"
+                            v-bind:value="motorista.MotoristaID"
+                        >
+                            {{ motorista.Nome }}
+                        </option>
                     </select>
 
                     <label>Tipo de carga</label>
-                    <select class="select-cargas">
-                        <option selected>Selecione...</option>
-                        <option v-for="carga in cargas" value="">{{ carga.DescricaoCarga }}</option>
+                    <select class="select-cargas" v-model="selectedCarga">
+                        <option disabled value="">Selecione...</option>
+                        <option v-for="carga in cargas" v-bind:value="carga.TipoCargaID">{{ carga.DescricaoCarga }}</option>
                     </select>
 
                     <label>Selecionar veículo</label>
-                    <select class="select-veiculos">
-                        <option selected>Selecione...</option>
-                        <option v-for="veiculo in veiculos">{{ veiculo.VeiculoID }} - {{ veiculo.Marca }} | {{ veiculo.Modelo }}</option>
+                    <select class="select-veiculos" v-model="selectedVeiculo">
+                        <option disabled value="">Selecione...</option>
+                        <option v-for="veiculo in veiculos" v-bind:value="veiculo.VeiculoID">{{ veiculo.VeiculoID }} - {{ veiculo.Marca }} | {{ veiculo.Modelo }}</option>
                     </select>
                 </div>
                 <div class="card-footer">

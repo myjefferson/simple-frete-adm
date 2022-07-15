@@ -51,4 +51,18 @@ ul.list .card .button a{
   margin: 0;
 }
 
-/**/
+/*Tag Colos Status*/
+.color-status b{
+  border-radius: 100px;
+  padding: 0 10px 4px 10px;
+}
+
+.color-status .em-viagem{
+  background: #C1DDFF;
+  color: #005FD6;
+}
+
+.color-status .sem-destino{
+  background: #CECECE;
+  color: #222222;
+}

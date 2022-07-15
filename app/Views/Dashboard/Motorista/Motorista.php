@@ -38,7 +38,10 @@
                                 <div class="col-md-8 separe">
                                     <div class="col-md-4">
                                         <label class="soft-text-info">Status</label>
-                                        <p class="color-status"><b>Em manutenção</b></p>
+                                        <p class="color-status">
+                                            <b v-if="motorista.SituacaoFreteID === null" class="sem-destino">Sem destino</b>
+                                            <b v-else class="em-viagem">Em viagem</b>
+                                        </p>
                                     </div>
                                     <div class="veiculo col-md-5">
                                         <label>caminhao / codigo</label>

@@ -57,9 +57,7 @@
 #content-solicitacao,
 #content-andamento{
     overflow-y: scroll;
-    height: 80vh;
-    height: 100vmax;
-    height: 80vmin;
+    height: calc(100vh - 110px) !important;
     padding: 2px;
 }
 

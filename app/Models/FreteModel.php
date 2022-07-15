@@ -55,6 +55,7 @@
                     "enderecoDestino"       => $row->enderecoDestino,
                     "valorTotal"            => $row->valorTotal,
                     "DescricaoFrete"        => $row->DescricaoFrete,
+                    "tipoCargaID"           => $row->TipoCargaID,
                     "DescricaoCarga"        => $row->DescricaoCarga,
                     "DescricaoMercadoria"   => $row->DescricaoMercadoria,
                     "descricaoAdicional"    => $row->descricaoAdicional,
@@ -113,7 +114,10 @@
             $update = $db->table('fretes')
             ->where(array("FreteID" => $frete['freteID']))
             ->update([
-                "SituacaoFreteID"   => $db->escapeString(strval($frete["situacaoFreteID"]))
+                "SituacaoFreteID"   => $db->escapeString(strval($frete["situacaoFreteID"])),
+                "VeiculoID"         => $db->escapeString(intval($frete["veiculoID"])),
+                "TipoCargaID"       => $db->escapeString(intval($frete["tipoCargaID"])),
+                "MotoristaID"       => $db->escapeString(intval($frete["motoristaID"]))
             ]);
 
             return $this->returnResponse( $update, $update );

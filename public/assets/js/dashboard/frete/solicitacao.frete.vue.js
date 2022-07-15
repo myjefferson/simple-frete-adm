@@ -20,6 +20,9 @@ new Vue({
             dataCriacao: "",
             enderecoOrigem: "",
             enderecoDestino: "",
+            selectedCarga: "",
+            selectedVeiculo: "",
+            selectedMotorista: "",
             tempoEntrega: "",
             valorTotal: ""
     },
@@ -40,10 +43,15 @@ new Vue({
             
             if(freteID != "" && freteID != undefined){
                 let formData = new FormData();    
-                formData.append('action',           'confirmFrete')   
-                formData.append('situacaoFreteID',  2)   
-                formData.append('freteID',          freteID)   
-    
+                formData.append('action',           'confirmSolicitacao')   
+                formData.append('situacaoFreteID',  2)
+                formData.append('tipoCargaID',      this.selectedCarga)
+                formData.append('veiculoID',        this.selectedVeiculo)
+                formData.append('motoristaID',      this.selectedMotorista)
+                formData.append('freteID',          freteID)
+
+                console.log(this.selectedCarga,this.selectedVeiculo,this.selectedMotorista)
+
                 axios({
                     method: 'post',
                     url: `/action/frete/confirmFrete`,
@@ -84,7 +92,7 @@ new Vue({
         })
         .then(res => {
             this.motoristas = res.data
-            console.log(res.data)
+            console.log(res.data[0].SituacaoFreteID)
         })
         .catch(error => {
             this.errored = true
@@ -100,7 +108,7 @@ new Vue({
         })
         .then(res => {
             this.cargas = res.data
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch(error => {
             this.errored = true
@@ -116,7 +124,7 @@ new Vue({
         })
         .then(res => {
             this.veiculos = res.data
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch(error => {
             this.errored = true

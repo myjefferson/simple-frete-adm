@@ -74,7 +74,7 @@
                 Estado,
                 Bairro,
                 NumeroCasa,
-                fretes.SituacaoFreteID
+                SituacaoFreteID
             ')
             ->join('fretes', 'fretes.MotoristaID = motoristas.MotoristaID', 'left')
             ->where('motoristas.MotoristaID', $MotoristaID);
@@ -96,7 +96,8 @@
                     "Cidade"            => $row->Cidade,
                     "Estado"            => $row->Estado,
                     "Bairro"            => $row->Bairro,
-                    "NumeroCasa"        => $row->NumeroCasa
+                    "NumeroCasa"        => $row->NumeroCasa,
+                    "SituacaoFreteID"   => $row->SituacaoFreteID
                 ];
             }
 
