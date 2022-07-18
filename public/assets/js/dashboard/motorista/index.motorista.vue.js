@@ -12,6 +12,7 @@ new Vue({
         })
         .then(res => {
             this.motoristas = res.data
+            console.log(this.motoristas)
         })
         .catch(error => {
             this.errored = true

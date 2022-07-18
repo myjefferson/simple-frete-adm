@@ -42,7 +42,7 @@
                     <div class="col-md-2 col-lg-2 lateral-nav">
                         <nav class="content-nav col-md-2 col-lg-2">
                             <a href="">
-                                <img class="brand" src="<?=base_url("./assets/images/brand.svg")?>" alt="Simple Frete System - Administração">
+                                <img id="brand" class="brand" src="<?=base_url("./assets/images/")?>/brand-<?=session()->get('lightMode')?>.svg" alt="Simple Frete System - Administração">
                             </a>
                             <ul class="menu-dashboard">
                                 <li>

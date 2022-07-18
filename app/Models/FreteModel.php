@@ -57,8 +57,9 @@
                     "DescricaoFrete"        => $row->DescricaoFrete,
                     "tipoCargaID"           => $row->TipoCargaID,
                     "DescricaoCarga"        => $row->DescricaoCarga,
-                    "DescricaoMercadoria"   => $row->DescricaoMercadoria,
+                    "DescricaoMercadoria"   => $row->descricaoMercadoria,
                     "descricaoAdicional"    => $row->descricaoAdicional,
+                    "dataModificacao"       => $row->dataModificacao,
                     "Disponibilidade"       => $row->Disponibilidade,
                 
                 ];
@@ -112,13 +113,22 @@
             $db = db_connect();
 
             $update = $db->table('fretes')
-            ->where(array("FreteID" => $frete['freteID']))
-            ->update([
-                "SituacaoFreteID"   => $db->escapeString(strval($frete["situacaoFreteID"])),
-                "VeiculoID"         => $db->escapeString(intval($frete["veiculoID"])),
-                "TipoCargaID"       => $db->escapeString(intval($frete["tipoCargaID"])),
-                "MotoristaID"       => $db->escapeString(intval($frete["motoristaID"]))
-            ]);
+            ->where(array("FreteID" => $frete['freteID']));
+            
+            if($frete["situacaoFreteID"] == 2){
+                $update->update([
+                    "SituacaoFreteID"   => $db->escapeString(intval($frete["situacaoFreteID"])),
+                    "VeiculoID"         => $db->escapeString(intval($frete["veiculoID"])),
+                    "TipoCargaID"       => $db->escapeString(intval($frete["tipoCargaID"])),
+                    "MotoristaID"       => $db->escapeString(intval($frete["motoristaID"]))
+                ]);
+            }
+
+            if(in_array($frete["situacaoFreteID"], [3,4,5])){
+                $update->update([
+                    "SituacaoFreteID"   => $db->escapeString(intval($frete["situacaoFreteID"]))
+                ]);
+            }            
 
             return $this->returnResponse( $update, $update );
         }

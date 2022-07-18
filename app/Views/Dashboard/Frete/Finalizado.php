@@ -38,8 +38,8 @@
                             <label>Destino</label>
                             <p><b>{{ frete.enderecoDestino }}</b></p>    
                             
-                            <label>Data solicitada de saída</label>
-                            <p><b>{{ frete.tempoEntrega }}</b></p>    
+                            <label>Data da entrega</label>
+                            <p><b>{{ frete.dataModificacao }}</b></p>    
 
                             <label>Valor calculado</label>
                             <h5><b>{{ frete.valorTotal }}</b></h5>    

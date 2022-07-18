@@ -20,7 +20,7 @@
                 
                 <div v-else
                     v-for="frete in fretes"
-                    class="list-fretes"
+                    class="list-fretes col-12 col-sm-6"
                 >
                     <div class="card"  v-on:click="selectFrete(frete.FreteID)" class="frete-card">
                         <div class="card-header">
@@ -35,10 +35,7 @@
                             <p><b>{{ frete.enderecoOrigem }}</b></p>    
                             
                             <label>Destino</label>
-                            <p><b>{{ frete.enderecoDestino }}</b></p>    
-                            
-                            <label>Data solicitada de saída</label>
-                            <p><b>{{ frete.tempoEntrega }}</b></p>    
+                            <p><b>{{ frete.enderecoDestino }}</b></p>     
 
                             <label>Valor calculado</label>
                             <h5><b>{{ frete.valorTotal }}</b></h5>    

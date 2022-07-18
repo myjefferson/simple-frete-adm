@@ -8,7 +8,20 @@
         public function selectAllVeiculosDB(){
             $db = db_connect();
 
-            $table = $db->table('veiculos');
+            $table = $db->table('veiculos')
+            ->select("
+                veiculos.VeiculoID,
+                Foto,
+                Marca,       
+                Modelo,     
+                Cor,        
+                Placa,     
+                localPlaca, 
+                Chassi,     
+                Renavan,  
+                fretes.SituacaoFreteID   
+            ")
+            ->join('fretes', 'fretes.VeiculoID = veiculos.VeiculoID', 'left');;
             $select  = $table->get();
 
             foreach ($select->getResult() as $row) {
@@ -22,8 +35,8 @@
                     "Placa"       => $row->Placa,
                     "localPlaca"  => $row->localPlaca,
                     "Chassi"      => $row->Chassi,
-                    "Renavan"     => $row->Renavan
-                
+                    "Renavan"     => $row->Renavan,
+                    "SituacaoFreteID"   => $row->SituacaoFreteID
                 ];
             }
 

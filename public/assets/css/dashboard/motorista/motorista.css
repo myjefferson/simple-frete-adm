@@ -62,6 +62,15 @@ ul.list .card .button a{
   color: #005FD6;
 }
 
+.color-status .em-viagem a{
+  text-decoration: none;
+}
+
+.color-status .em-reserva{
+  background: #FFE6C1;
+  color: #C16800;
+}
+
 .color-status .sem-destino{
   background: #CECECE;
   color: #222222;

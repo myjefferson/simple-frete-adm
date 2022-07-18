@@ -7,7 +7,7 @@
                     <li>
                         <h2><b>Cadastro de Motorista</b></h2>
                     </li>
-                    <li>
+                    <!-- <li>
                         <div class="dropdown notifications">
                             <button class="btnDf on-button-white" type="button" id="dropdownNotifications" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="iconify" data-icon="mi:notification"></span>
@@ -18,7 +18,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

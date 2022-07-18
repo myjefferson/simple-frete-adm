@@ -7,7 +7,7 @@
     
     <?=$viewHeaderMotorista;?>
 
-    <div class="row">
+    <div>
         <div v-if="errored"> 
             Nada encontrado 
         </div>
@@ -19,35 +19,32 @@
             </div>
                 
             <div v-else class="motorista">
-                <ul class="list">
+                <ul class="list row">
                     <li 
                         v-for="motorista in motoristas"
-                        class="col-sm-12 col-md-12 col-lg-12 col-xl-12 no-padding"
+                        class="col-sm-12 col-md-12 col-lg-6 col-xl-6"
                     >
                         <div class="card">
                             <div class="row">
-                                <div class="col-md-4 separe">
+                                <div class="col-md-6 separe">
                                     <div rowspan="2" class="avatar">
-                                        <img v-bind:src="'../upload/'+motorista.Foto" onerror="this.onerror=null; this.src='<?=base_url('./assets/images/avatar.png') ?>'">
+                                        <img v-bind:src="'../upload/motoristas/'+motorista.Foto" onerror="this.onerror=null; this.src='<?=base_url('./assets/images/avatar.png') ?>'">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="soft-text-info">Motorista</label>
                                         <h4><label class="nome">{{ motorista.Nome }}</label></h4>
                                     </div>
                                 </div>
-                                <div class="col-md-8 separe">
-                                    <div class="col-md-4">
+                                <div class="col-md-6 separe">
+                                    <div class="col-md-6">
                                         <label class="soft-text-info">Status</label>
                                         <p class="color-status">
-                                            <b v-if="motorista.SituacaoFreteID === null" class="sem-destino">Sem destino</b>
-                                            <b v-else class="em-viagem">Em viagem</b>
+                                            <b v-if="motorista.SituacaoFreteID === null || motorista.SituacaoFreteID === '5'" class="sem-destino">Sem destino</b>
+                                            <b v-if="motorista.SituacaoFreteID === '4'" class="em-viagem"><a href="/dashboard/frete/em-andamento">Em viagem</a></b>
+                                            <b v-if="motorista.SituacaoFreteID === '2' || motorista.SituacaoFreteID === '3'" class="em-reserva">Reservado</b>
                                         </p>
                                     </div>
-                                    <div class="veiculo col-md-5">
-                                        <label>caminhao / codigo</label>
-                                        <p class="registro-veiculo"><b>Marcopolo Cod. 234</b></p>
-                                    </div>
-                                    <div class="button col-md-3">  
+                                    <div class="button col-md-6">  
                                         <a :href="'/dashboard/motorista/detalhe-motorista/' +  motorista.MotoristaID">Ver mais</a>
                                     </div>
                                 </div>

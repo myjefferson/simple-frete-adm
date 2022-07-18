@@ -36,10 +36,7 @@
                             <p><b>{{ frete.enderecoOrigem }}</b></p>    
                             
                             <label>Destino</label>
-                            <p><b>{{ frete.enderecoDestino }}</b></p>    
-                            
-                            <label>Data solicitada de saída</label>
-                            <p><b>{{ frete.tempoEntrega }}</b></p>    
+                            <p><b>{{ frete.enderecoDestino }}</b></p>       
 
                             <label>Valor calculado</label>
                             <h5><b>{{ frete.valorTotal }}</b></h5>    
@@ -75,13 +72,10 @@
                 </div>
                 <div class="card-body">
                     <label>Origem</label>
-                        <p><b>{{selected.enderecoOrigem}}</b></p>    
+                    <p><b>{{selected.enderecoOrigem}}</b></p>    
                     
                     <label>Destino</label>
                     <p><b>{{selected.enderecoDestino}}</b></p>    
-                    
-                    <label>Data solicitada de saída</label>
-                    <p></p>
 
                     <label>Descrição Frete</label>
                     <p><b>{{ selected.DescricaoFrete }}</b></p> 
@@ -102,7 +96,7 @@
                         <option disabled value="">Selecione...</option>
                         <option 
                             v-for="motorista in motoristas"
-                            v-if="motorista.SituacaoFreteID === null"
+                            v-if="motorista.SituacaoFreteID === null || motorista.SituacaoFreteID === '5'"
                             v-bind:value="motorista.MotoristaID"
                         >
                             {{ motorista.Nome }}
@@ -118,7 +112,7 @@
                     <label>Selecionar veículo</label>
                     <select class="select-veiculos" v-model="selectedVeiculo">
                         <option disabled value="">Selecione...</option>
-                        <option v-for="veiculo in veiculos" v-bind:value="veiculo.VeiculoID">{{ veiculo.VeiculoID }} - {{ veiculo.Marca }} | {{ veiculo.Modelo }}</option>
+                        <option v-for="veiculo in veiculos" v-bind:value="veiculo.VeiculoID">{{ veiculo.VeiculoID }} - {{ veiculo.Marca }} | {{ veiculo.Modelo }} </option>
                     </select>
                 </div>
                 <div class="card-footer">

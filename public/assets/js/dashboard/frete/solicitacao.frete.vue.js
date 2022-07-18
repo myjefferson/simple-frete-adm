@@ -16,6 +16,7 @@ new Vue({
 
             selected: [],
 
+            VeiculoID: "",
             FreteID: "",
             dataCriacao: "",
             enderecoOrigem: "",
@@ -30,6 +31,8 @@ new Vue({
         selectFrete(freteid){
             const findSelected = this.fretes.find(id => (id.FreteID === freteid)) 
             this.selected = findSelected
+
+            console.log(this.selected)
 
             onChangeHandler(this.selected.enderecoOrigem, this.selected.enderecoDestino)
             document.getElementById("more-details").style.width = "25%"
@@ -124,7 +127,7 @@ new Vue({
         })
         .then(res => {
             this.veiculos = res.data
-            // console.log(res.data)
+            console.log(res.data)
         })
         .catch(error => {
             this.errored = true

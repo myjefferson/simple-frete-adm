@@ -18,7 +18,7 @@ new Vue({
             
             if(freteID != "" && freteID != undefined){
                 let formData = new FormData();    
-                formData.append('action',           'confirmFrete')   
+                formData.append('action',           'confirmPagamento')   
                 formData.append('situacaoFreteID',  3)   
                 formData.append('freteID',          freteID)   
     

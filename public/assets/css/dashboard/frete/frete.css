@@ -183,7 +183,7 @@ ul.status{
 
 /*Pagamento*/
 .info-pagamento{
-    color: var(--global-text-color);
+    color: #FFF;
     background: #ED4700 !important;
 }
 
@@ -196,7 +196,7 @@ ul.status{
 /*Andamento*/
 .info-andamento,
 #page-andamento .more-details .card-header{
-    color: var(--global-text-color);
+    color: #FFF;
     background: #00C2FF !important;
 }
 

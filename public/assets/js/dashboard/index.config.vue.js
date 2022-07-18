@@ -9,6 +9,9 @@ new Vue({
             main.className = ''
             main.classList.add(`${lightMode}`)
 
+            const brand = document.getElementById("brand")
+            brand.src = `../../assets/images/brand-${lightMode}.svg`
+
             const formData = new FormData();
             formData.append('action', 'updateLightMode');
             formData.append('lightMode', lightMode);

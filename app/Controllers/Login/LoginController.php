@@ -11,7 +11,7 @@
 			$data['titulo'] = "Login | SimpleFrete";
 			$data['cssPage'] = "<link rel='stylesheet' href=".base_url("assets/css/login/login.css").">";
 			$data['jsPage'] = "<script src=".base_url("assets/js/login-out/login.vue.js")." defer></script>";
-			$footer['contentFooter'] = "Simple Frete";		
+			$footer['contentFooter'] = "Simple Frete v1.0 | Alpha";		
 			
 			//loading views
 			echo view('template/Head');

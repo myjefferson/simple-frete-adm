@@ -164,7 +164,7 @@ new Vue({
         .then(res => {
             this.loadFoto               = res.data.Foto    
             if(this.loadFoto.length != 0){
-                document.getElementById("img-preview").src = '../../../upload/' + this.loadFoto
+                document.getElementById("img-preview").src = '../../../upload/motoristas/' + this.loadFoto
             }      
             this.inputNome              = res.data.Nome
             this.inputDataNascimento    = res.data.dataNascimento
