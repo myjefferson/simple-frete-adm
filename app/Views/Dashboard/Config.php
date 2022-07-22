@@ -54,9 +54,7 @@
         </section>
 
         <section class="author">
-            <h3><b>Desenvolvedores</b></h3>
-            <p>Eduarda dos Reis Scheluchnhak</p>
-            <p>Jefferson Carvalho dos Santos</p>
+            <p>Desenvolvido com 💙 por Jefferson Carvalho</p>
             <hr/>
             <p><b>&copy; Simple Frete v1 | Alpha</b></p>
             <p>Todos os direitos reservados</p>
